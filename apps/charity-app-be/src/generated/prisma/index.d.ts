@@ -14,10 +14,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model DonationOption
+ * Model Organisation
  * 
  */
-export type DonationOption = $Result.DefaultSelection<Prisma.$DonationOptionPayload>
+export type Organisation = $Result.DefaultSelection<Prisma.$OrganisationPayload>
 /**
  * Model Donation
  * 
@@ -54,8 +54,8 @@ export const DonationStatus: typeof $Enums.DonationStatus
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more DonationOptions
- * const donationOptions = await prisma.donationOption.findMany()
+ * // Fetch zero or more Organisations
+ * const organisations = await prisma.organisation.findMany()
  * ```
  *
  *
@@ -75,8 +75,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more DonationOptions
-   * const donationOptions = await prisma.donationOption.findMany()
+   * // Fetch zero or more Organisations
+   * const organisations = await prisma.organisation.findMany()
    * ```
    *
    *
@@ -173,14 +173,14 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.donationOption`: Exposes CRUD operations for the **DonationOption** model.
+   * `prisma.organisation`: Exposes CRUD operations for the **Organisation** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more DonationOptions
-    * const donationOptions = await prisma.donationOption.findMany()
+    * // Fetch zero or more Organisations
+    * const organisations = await prisma.organisation.findMany()
     * ```
     */
-  get donationOption(): Prisma.DonationOptionDelegate<ExtArgs, ClientOptions>;
+  get organisation(): Prisma.OrganisationDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.donation`: Exposes CRUD operations for the **Donation** model.
@@ -641,7 +641,7 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    DonationOption: 'DonationOption',
+    Organisation: 'Organisation',
     Donation: 'Donation',
     DonationItem: 'DonationItem'
   };
@@ -662,81 +662,81 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "donationOption" | "donation" | "donationItem"
+      modelProps: "organisation" | "donation" | "donationItem"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      DonationOption: {
-        payload: Prisma.$DonationOptionPayload<ExtArgs>
-        fields: Prisma.DonationOptionFieldRefs
+      Organisation: {
+        payload: Prisma.$OrganisationPayload<ExtArgs>
+        fields: Prisma.OrganisationFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.DonationOptionFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DonationOptionPayload> | null
+            args: Prisma.OrganisationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.DonationOptionFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DonationOptionPayload>
+            args: Prisma.OrganisationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>
           }
           findFirst: {
-            args: Prisma.DonationOptionFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DonationOptionPayload> | null
+            args: Prisma.OrganisationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.DonationOptionFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DonationOptionPayload>
+            args: Prisma.OrganisationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>
           }
           findMany: {
-            args: Prisma.DonationOptionFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DonationOptionPayload>[]
+            args: Prisma.OrganisationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>[]
           }
           create: {
-            args: Prisma.DonationOptionCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DonationOptionPayload>
+            args: Prisma.OrganisationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>
           }
           createMany: {
-            args: Prisma.DonationOptionCreateManyArgs<ExtArgs>
+            args: Prisma.OrganisationCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.DonationOptionCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DonationOptionPayload>[]
+            args: Prisma.OrganisationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>[]
           }
           delete: {
-            args: Prisma.DonationOptionDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DonationOptionPayload>
+            args: Prisma.OrganisationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>
           }
           update: {
-            args: Prisma.DonationOptionUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DonationOptionPayload>
+            args: Prisma.OrganisationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>
           }
           deleteMany: {
-            args: Prisma.DonationOptionDeleteManyArgs<ExtArgs>
+            args: Prisma.OrganisationDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.DonationOptionUpdateManyArgs<ExtArgs>
+            args: Prisma.OrganisationUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.DonationOptionUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DonationOptionPayload>[]
+            args: Prisma.OrganisationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>[]
           }
           upsert: {
-            args: Prisma.DonationOptionUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DonationOptionPayload>
+            args: Prisma.OrganisationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>
           }
           aggregate: {
-            args: Prisma.DonationOptionAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateDonationOption>
+            args: Prisma.OrganisationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateOrganisation>
           }
           groupBy: {
-            args: Prisma.DonationOptionGroupByArgs<ExtArgs>
-            result: $Utils.Optional<DonationOptionGroupByOutputType>[]
+            args: Prisma.OrganisationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<OrganisationGroupByOutputType>[]
           }
           count: {
-            args: Prisma.DonationOptionCountArgs<ExtArgs>
-            result: $Utils.Optional<DonationOptionCountAggregateOutputType> | number
+            args: Prisma.OrganisationCountArgs<ExtArgs>
+            result: $Utils.Optional<OrganisationCountAggregateOutputType> | number
           }
         }
       }
@@ -972,7 +972,7 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
-    donationOption?: DonationOptionOmit
+    organisation?: OrganisationOmit
     donation?: DonationOmit
     donationItem?: DonationItemOmit
   }
@@ -1065,32 +1065,32 @@ export namespace Prisma {
 
 
   /**
-   * Count Type DonationOptionCountOutputType
+   * Count Type OrganisationCountOutputType
    */
 
-  export type DonationOptionCountOutputType = {
+  export type OrganisationCountOutputType = {
     donationItems: number
   }
 
-  export type DonationOptionCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    donationItems?: boolean | DonationOptionCountOutputTypeCountDonationItemsArgs
+  export type OrganisationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    donationItems?: boolean | OrganisationCountOutputTypeCountDonationItemsArgs
   }
 
   // Custom InputTypes
   /**
-   * DonationOptionCountOutputType without action
+   * OrganisationCountOutputType without action
    */
-  export type DonationOptionCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DonationOptionCountOutputType
+     * Select specific fields to fetch from the OrganisationCountOutputType
      */
-    select?: DonationOptionCountOutputTypeSelect<ExtArgs> | null
+    select?: OrganisationCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * DonationOptionCountOutputType without action
+   * OrganisationCountOutputType without action
    */
-  export type DonationOptionCountOutputTypeCountDonationItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationCountOutputTypeCountDonationItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: DonationItemWhereInput
   }
 
@@ -1131,26 +1131,26 @@ export namespace Prisma {
    */
 
   /**
-   * Model DonationOption
+   * Model Organisation
    */
 
-  export type AggregateDonationOption = {
-    _count: DonationOptionCountAggregateOutputType | null
-    _avg: DonationOptionAvgAggregateOutputType | null
-    _sum: DonationOptionSumAggregateOutputType | null
-    _min: DonationOptionMinAggregateOutputType | null
-    _max: DonationOptionMaxAggregateOutputType | null
+  export type AggregateOrganisation = {
+    _count: OrganisationCountAggregateOutputType | null
+    _avg: OrganisationAvgAggregateOutputType | null
+    _sum: OrganisationSumAggregateOutputType | null
+    _min: OrganisationMinAggregateOutputType | null
+    _max: OrganisationMaxAggregateOutputType | null
   }
 
-  export type DonationOptionAvgAggregateOutputType = {
+  export type OrganisationAvgAggregateOutputType = {
     suggestedAmount: number | null
   }
 
-  export type DonationOptionSumAggregateOutputType = {
+  export type OrganisationSumAggregateOutputType = {
     suggestedAmount: number | null
   }
 
-  export type DonationOptionMinAggregateOutputType = {
+  export type OrganisationMinAggregateOutputType = {
     id: string | null
     name: string | null
     description: string | null
@@ -1162,7 +1162,7 @@ export namespace Prisma {
     updatedAt: Date | null
   }
 
-  export type DonationOptionMaxAggregateOutputType = {
+  export type OrganisationMaxAggregateOutputType = {
     id: string | null
     name: string | null
     description: string | null
@@ -1174,7 +1174,7 @@ export namespace Prisma {
     updatedAt: Date | null
   }
 
-  export type DonationOptionCountAggregateOutputType = {
+  export type OrganisationCountAggregateOutputType = {
     id: number
     name: number
     description: number
@@ -1188,15 +1188,15 @@ export namespace Prisma {
   }
 
 
-  export type DonationOptionAvgAggregateInputType = {
+  export type OrganisationAvgAggregateInputType = {
     suggestedAmount?: true
   }
 
-  export type DonationOptionSumAggregateInputType = {
+  export type OrganisationSumAggregateInputType = {
     suggestedAmount?: true
   }
 
-  export type DonationOptionMinAggregateInputType = {
+  export type OrganisationMinAggregateInputType = {
     id?: true
     name?: true
     description?: true
@@ -1208,7 +1208,7 @@ export namespace Prisma {
     updatedAt?: true
   }
 
-  export type DonationOptionMaxAggregateInputType = {
+  export type OrganisationMaxAggregateInputType = {
     id?: true
     name?: true
     description?: true
@@ -1220,7 +1220,7 @@ export namespace Prisma {
     updatedAt?: true
   }
 
-  export type DonationOptionCountAggregateInputType = {
+  export type OrganisationCountAggregateInputType = {
     id?: true
     name?: true
     description?: true
@@ -1233,93 +1233,93 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type DonationOptionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which DonationOption to aggregate.
+     * Filter which Organisation to aggregate.
      */
-    where?: DonationOptionWhereInput
+    where?: OrganisationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of DonationOptions to fetch.
+     * Determine the order of Organisations to fetch.
      */
-    orderBy?: DonationOptionOrderByWithRelationInput | DonationOptionOrderByWithRelationInput[]
+    orderBy?: OrganisationOrderByWithRelationInput | OrganisationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: DonationOptionWhereUniqueInput
+    cursor?: OrganisationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` DonationOptions from the position of the cursor.
+     * Take `±n` Organisations from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` DonationOptions.
+     * Skip the first `n` Organisations.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned DonationOptions
+     * Count returned Organisations
     **/
-    _count?: true | DonationOptionCountAggregateInputType
+    _count?: true | OrganisationCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: DonationOptionAvgAggregateInputType
+    _avg?: OrganisationAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: DonationOptionSumAggregateInputType
+    _sum?: OrganisationSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: DonationOptionMinAggregateInputType
+    _min?: OrganisationMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: DonationOptionMaxAggregateInputType
+    _max?: OrganisationMaxAggregateInputType
   }
 
-  export type GetDonationOptionAggregateType<T extends DonationOptionAggregateArgs> = {
-        [P in keyof T & keyof AggregateDonationOption]: P extends '_count' | 'count'
+  export type GetOrganisationAggregateType<T extends OrganisationAggregateArgs> = {
+        [P in keyof T & keyof AggregateOrganisation]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateDonationOption[P]>
-      : GetScalarType<T[P], AggregateDonationOption[P]>
+        : GetScalarType<T[P], AggregateOrganisation[P]>
+      : GetScalarType<T[P], AggregateOrganisation[P]>
   }
 
 
 
 
-  export type DonationOptionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: DonationOptionWhereInput
-    orderBy?: DonationOptionOrderByWithAggregationInput | DonationOptionOrderByWithAggregationInput[]
-    by: DonationOptionScalarFieldEnum[] | DonationOptionScalarFieldEnum
-    having?: DonationOptionScalarWhereWithAggregatesInput
+  export type OrganisationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OrganisationWhereInput
+    orderBy?: OrganisationOrderByWithAggregationInput | OrganisationOrderByWithAggregationInput[]
+    by: OrganisationScalarFieldEnum[] | OrganisationScalarFieldEnum
+    having?: OrganisationScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: DonationOptionCountAggregateInputType | true
-    _avg?: DonationOptionAvgAggregateInputType
-    _sum?: DonationOptionSumAggregateInputType
-    _min?: DonationOptionMinAggregateInputType
-    _max?: DonationOptionMaxAggregateInputType
+    _count?: OrganisationCountAggregateInputType | true
+    _avg?: OrganisationAvgAggregateInputType
+    _sum?: OrganisationSumAggregateInputType
+    _min?: OrganisationMinAggregateInputType
+    _max?: OrganisationMaxAggregateInputType
   }
 
-  export type DonationOptionGroupByOutputType = {
+  export type OrganisationGroupByOutputType = {
     id: string
     name: string
     description: string
@@ -1329,28 +1329,28 @@ export namespace Prisma {
     isFeatured: boolean
     createdAt: Date
     updatedAt: Date
-    _count: DonationOptionCountAggregateOutputType | null
-    _avg: DonationOptionAvgAggregateOutputType | null
-    _sum: DonationOptionSumAggregateOutputType | null
-    _min: DonationOptionMinAggregateOutputType | null
-    _max: DonationOptionMaxAggregateOutputType | null
+    _count: OrganisationCountAggregateOutputType | null
+    _avg: OrganisationAvgAggregateOutputType | null
+    _sum: OrganisationSumAggregateOutputType | null
+    _min: OrganisationMinAggregateOutputType | null
+    _max: OrganisationMaxAggregateOutputType | null
   }
 
-  type GetDonationOptionGroupByPayload<T extends DonationOptionGroupByArgs> = Prisma.PrismaPromise<
+  type GetOrganisationGroupByPayload<T extends OrganisationGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<DonationOptionGroupByOutputType, T['by']> &
+      PickEnumerable<OrganisationGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof DonationOptionGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof OrganisationGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], DonationOptionGroupByOutputType[P]>
-            : GetScalarType<T[P], DonationOptionGroupByOutputType[P]>
+              : GetScalarType<T[P], OrganisationGroupByOutputType[P]>
+            : GetScalarType<T[P], OrganisationGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type DonationOptionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type OrganisationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     description?: boolean
@@ -1360,11 +1360,11 @@ export namespace Prisma {
     isFeatured?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    donationItems?: boolean | DonationOption$donationItemsArgs<ExtArgs>
-    _count?: boolean | DonationOptionCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["donationOption"]>
+    donationItems?: boolean | Organisation$donationItemsArgs<ExtArgs>
+    _count?: boolean | OrganisationCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["organisation"]>
 
-  export type DonationOptionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type OrganisationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     description?: boolean
@@ -1374,9 +1374,9 @@ export namespace Prisma {
     isFeatured?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["donationOption"]>
+  }, ExtArgs["result"]["organisation"]>
 
-  export type DonationOptionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type OrganisationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     description?: boolean
@@ -1386,9 +1386,9 @@ export namespace Prisma {
     isFeatured?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["donationOption"]>
+  }, ExtArgs["result"]["organisation"]>
 
-  export type DonationOptionSelectScalar = {
+  export type OrganisationSelectScalar = {
     id?: boolean
     name?: boolean
     description?: boolean
@@ -1400,16 +1400,16 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type DonationOptionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "suggestedAmount" | "image" | "stripePriceId" | "isFeatured" | "createdAt" | "updatedAt", ExtArgs["result"]["donationOption"]>
-  export type DonationOptionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    donationItems?: boolean | DonationOption$donationItemsArgs<ExtArgs>
-    _count?: boolean | DonationOptionCountOutputTypeDefaultArgs<ExtArgs>
+  export type OrganisationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "suggestedAmount" | "image" | "stripePriceId" | "isFeatured" | "createdAt" | "updatedAt", ExtArgs["result"]["organisation"]>
+  export type OrganisationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    donationItems?: boolean | Organisation$donationItemsArgs<ExtArgs>
+    _count?: boolean | OrganisationCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type DonationOptionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type DonationOptionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type OrganisationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type OrganisationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $DonationOptionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "DonationOption"
+  export type $OrganisationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Organisation"
     objects: {
       donationItems: Prisma.$DonationItemPayload<ExtArgs>[]
     }
@@ -1423,136 +1423,136 @@ export namespace Prisma {
       isFeatured: boolean
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["donationOption"]>
+    }, ExtArgs["result"]["organisation"]>
     composites: {}
   }
 
-  type DonationOptionGetPayload<S extends boolean | null | undefined | DonationOptionDefaultArgs> = $Result.GetResult<Prisma.$DonationOptionPayload, S>
+  type OrganisationGetPayload<S extends boolean | null | undefined | OrganisationDefaultArgs> = $Result.GetResult<Prisma.$OrganisationPayload, S>
 
-  type DonationOptionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<DonationOptionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: DonationOptionCountAggregateInputType | true
+  type OrganisationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<OrganisationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: OrganisationCountAggregateInputType | true
     }
 
-  export interface DonationOptionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DonationOption'], meta: { name: 'DonationOption' } }
+  export interface OrganisationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Organisation'], meta: { name: 'Organisation' } }
     /**
-     * Find zero or one DonationOption that matches the filter.
-     * @param {DonationOptionFindUniqueArgs} args - Arguments to find a DonationOption
+     * Find zero or one Organisation that matches the filter.
+     * @param {OrganisationFindUniqueArgs} args - Arguments to find a Organisation
      * @example
-     * // Get one DonationOption
-     * const donationOption = await prisma.donationOption.findUnique({
+     * // Get one Organisation
+     * const organisation = await prisma.organisation.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends DonationOptionFindUniqueArgs>(args: SelectSubset<T, DonationOptionFindUniqueArgs<ExtArgs>>): Prisma__DonationOptionClient<$Result.GetResult<Prisma.$DonationOptionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends OrganisationFindUniqueArgs>(args: SelectSubset<T, OrganisationFindUniqueArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one DonationOption that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Organisation that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {DonationOptionFindUniqueOrThrowArgs} args - Arguments to find a DonationOption
+     * @param {OrganisationFindUniqueOrThrowArgs} args - Arguments to find a Organisation
      * @example
-     * // Get one DonationOption
-     * const donationOption = await prisma.donationOption.findUniqueOrThrow({
+     * // Get one Organisation
+     * const organisation = await prisma.organisation.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends DonationOptionFindUniqueOrThrowArgs>(args: SelectSubset<T, DonationOptionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DonationOptionClient<$Result.GetResult<Prisma.$DonationOptionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends OrganisationFindUniqueOrThrowArgs>(args: SelectSubset<T, OrganisationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first DonationOption that matches the filter.
+     * Find the first Organisation that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DonationOptionFindFirstArgs} args - Arguments to find a DonationOption
+     * @param {OrganisationFindFirstArgs} args - Arguments to find a Organisation
      * @example
-     * // Get one DonationOption
-     * const donationOption = await prisma.donationOption.findFirst({
+     * // Get one Organisation
+     * const organisation = await prisma.organisation.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends DonationOptionFindFirstArgs>(args?: SelectSubset<T, DonationOptionFindFirstArgs<ExtArgs>>): Prisma__DonationOptionClient<$Result.GetResult<Prisma.$DonationOptionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends OrganisationFindFirstArgs>(args?: SelectSubset<T, OrganisationFindFirstArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first DonationOption that matches the filter or
+     * Find the first Organisation that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DonationOptionFindFirstOrThrowArgs} args - Arguments to find a DonationOption
+     * @param {OrganisationFindFirstOrThrowArgs} args - Arguments to find a Organisation
      * @example
-     * // Get one DonationOption
-     * const donationOption = await prisma.donationOption.findFirstOrThrow({
+     * // Get one Organisation
+     * const organisation = await prisma.organisation.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends DonationOptionFindFirstOrThrowArgs>(args?: SelectSubset<T, DonationOptionFindFirstOrThrowArgs<ExtArgs>>): Prisma__DonationOptionClient<$Result.GetResult<Prisma.$DonationOptionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends OrganisationFindFirstOrThrowArgs>(args?: SelectSubset<T, OrganisationFindFirstOrThrowArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more DonationOptions that matches the filter.
+     * Find zero or more Organisations that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DonationOptionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {OrganisationFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all DonationOptions
-     * const donationOptions = await prisma.donationOption.findMany()
+     * // Get all Organisations
+     * const organisations = await prisma.organisation.findMany()
      * 
-     * // Get first 10 DonationOptions
-     * const donationOptions = await prisma.donationOption.findMany({ take: 10 })
+     * // Get first 10 Organisations
+     * const organisations = await prisma.organisation.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const donationOptionWithIdOnly = await prisma.donationOption.findMany({ select: { id: true } })
+     * const organisationWithIdOnly = await prisma.organisation.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends DonationOptionFindManyArgs>(args?: SelectSubset<T, DonationOptionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DonationOptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends OrganisationFindManyArgs>(args?: SelectSubset<T, OrganisationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a DonationOption.
-     * @param {DonationOptionCreateArgs} args - Arguments to create a DonationOption.
+     * Create a Organisation.
+     * @param {OrganisationCreateArgs} args - Arguments to create a Organisation.
      * @example
-     * // Create one DonationOption
-     * const DonationOption = await prisma.donationOption.create({
+     * // Create one Organisation
+     * const Organisation = await prisma.organisation.create({
      *   data: {
-     *     // ... data to create a DonationOption
+     *     // ... data to create a Organisation
      *   }
      * })
      * 
      */
-    create<T extends DonationOptionCreateArgs>(args: SelectSubset<T, DonationOptionCreateArgs<ExtArgs>>): Prisma__DonationOptionClient<$Result.GetResult<Prisma.$DonationOptionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends OrganisationCreateArgs>(args: SelectSubset<T, OrganisationCreateArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many DonationOptions.
-     * @param {DonationOptionCreateManyArgs} args - Arguments to create many DonationOptions.
+     * Create many Organisations.
+     * @param {OrganisationCreateManyArgs} args - Arguments to create many Organisations.
      * @example
-     * // Create many DonationOptions
-     * const donationOption = await prisma.donationOption.createMany({
+     * // Create many Organisations
+     * const organisation = await prisma.organisation.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends DonationOptionCreateManyArgs>(args?: SelectSubset<T, DonationOptionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends OrganisationCreateManyArgs>(args?: SelectSubset<T, OrganisationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many DonationOptions and returns the data saved in the database.
-     * @param {DonationOptionCreateManyAndReturnArgs} args - Arguments to create many DonationOptions.
+     * Create many Organisations and returns the data saved in the database.
+     * @param {OrganisationCreateManyAndReturnArgs} args - Arguments to create many Organisations.
      * @example
-     * // Create many DonationOptions
-     * const donationOption = await prisma.donationOption.createManyAndReturn({
+     * // Create many Organisations
+     * const organisation = await prisma.organisation.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many DonationOptions and only return the `id`
-     * const donationOptionWithIdOnly = await prisma.donationOption.createManyAndReturn({
+     * // Create many Organisations and only return the `id`
+     * const organisationWithIdOnly = await prisma.organisation.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -1562,28 +1562,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends DonationOptionCreateManyAndReturnArgs>(args?: SelectSubset<T, DonationOptionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DonationOptionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends OrganisationCreateManyAndReturnArgs>(args?: SelectSubset<T, OrganisationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a DonationOption.
-     * @param {DonationOptionDeleteArgs} args - Arguments to delete one DonationOption.
+     * Delete a Organisation.
+     * @param {OrganisationDeleteArgs} args - Arguments to delete one Organisation.
      * @example
-     * // Delete one DonationOption
-     * const DonationOption = await prisma.donationOption.delete({
+     * // Delete one Organisation
+     * const Organisation = await prisma.organisation.delete({
      *   where: {
-     *     // ... filter to delete one DonationOption
+     *     // ... filter to delete one Organisation
      *   }
      * })
      * 
      */
-    delete<T extends DonationOptionDeleteArgs>(args: SelectSubset<T, DonationOptionDeleteArgs<ExtArgs>>): Prisma__DonationOptionClient<$Result.GetResult<Prisma.$DonationOptionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends OrganisationDeleteArgs>(args: SelectSubset<T, OrganisationDeleteArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one DonationOption.
-     * @param {DonationOptionUpdateArgs} args - Arguments to update one DonationOption.
+     * Update one Organisation.
+     * @param {OrganisationUpdateArgs} args - Arguments to update one Organisation.
      * @example
-     * // Update one DonationOption
-     * const donationOption = await prisma.donationOption.update({
+     * // Update one Organisation
+     * const organisation = await prisma.organisation.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1593,30 +1593,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends DonationOptionUpdateArgs>(args: SelectSubset<T, DonationOptionUpdateArgs<ExtArgs>>): Prisma__DonationOptionClient<$Result.GetResult<Prisma.$DonationOptionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends OrganisationUpdateArgs>(args: SelectSubset<T, OrganisationUpdateArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more DonationOptions.
-     * @param {DonationOptionDeleteManyArgs} args - Arguments to filter DonationOptions to delete.
+     * Delete zero or more Organisations.
+     * @param {OrganisationDeleteManyArgs} args - Arguments to filter Organisations to delete.
      * @example
-     * // Delete a few DonationOptions
-     * const { count } = await prisma.donationOption.deleteMany({
+     * // Delete a few Organisations
+     * const { count } = await prisma.organisation.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends DonationOptionDeleteManyArgs>(args?: SelectSubset<T, DonationOptionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends OrganisationDeleteManyArgs>(args?: SelectSubset<T, OrganisationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more DonationOptions.
+     * Update zero or more Organisations.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DonationOptionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {OrganisationUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many DonationOptions
-     * const donationOption = await prisma.donationOption.updateMany({
+     * // Update many Organisations
+     * const organisation = await prisma.organisation.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1626,14 +1626,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends DonationOptionUpdateManyArgs>(args: SelectSubset<T, DonationOptionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends OrganisationUpdateManyArgs>(args: SelectSubset<T, OrganisationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more DonationOptions and returns the data updated in the database.
-     * @param {DonationOptionUpdateManyAndReturnArgs} args - Arguments to update many DonationOptions.
+     * Update zero or more Organisations and returns the data updated in the database.
+     * @param {OrganisationUpdateManyAndReturnArgs} args - Arguments to update many Organisations.
      * @example
-     * // Update many DonationOptions
-     * const donationOption = await prisma.donationOption.updateManyAndReturn({
+     * // Update many Organisations
+     * const organisation = await prisma.organisation.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1642,8 +1642,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more DonationOptions and only return the `id`
-     * const donationOptionWithIdOnly = await prisma.donationOption.updateManyAndReturn({
+     * // Update zero or more Organisations and only return the `id`
+     * const organisationWithIdOnly = await prisma.organisation.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -1656,56 +1656,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends DonationOptionUpdateManyAndReturnArgs>(args: SelectSubset<T, DonationOptionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DonationOptionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends OrganisationUpdateManyAndReturnArgs>(args: SelectSubset<T, OrganisationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one DonationOption.
-     * @param {DonationOptionUpsertArgs} args - Arguments to update or create a DonationOption.
+     * Create or update one Organisation.
+     * @param {OrganisationUpsertArgs} args - Arguments to update or create a Organisation.
      * @example
-     * // Update or create a DonationOption
-     * const donationOption = await prisma.donationOption.upsert({
+     * // Update or create a Organisation
+     * const organisation = await prisma.organisation.upsert({
      *   create: {
-     *     // ... data to create a DonationOption
+     *     // ... data to create a Organisation
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the DonationOption we want to update
+     *     // ... the filter for the Organisation we want to update
      *   }
      * })
      */
-    upsert<T extends DonationOptionUpsertArgs>(args: SelectSubset<T, DonationOptionUpsertArgs<ExtArgs>>): Prisma__DonationOptionClient<$Result.GetResult<Prisma.$DonationOptionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends OrganisationUpsertArgs>(args: SelectSubset<T, OrganisationUpsertArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of DonationOptions.
+     * Count the number of Organisations.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DonationOptionCountArgs} args - Arguments to filter DonationOptions to count.
+     * @param {OrganisationCountArgs} args - Arguments to filter Organisations to count.
      * @example
-     * // Count the number of DonationOptions
-     * const count = await prisma.donationOption.count({
+     * // Count the number of Organisations
+     * const count = await prisma.organisation.count({
      *   where: {
-     *     // ... the filter for the DonationOptions we want to count
+     *     // ... the filter for the Organisations we want to count
      *   }
      * })
     **/
-    count<T extends DonationOptionCountArgs>(
-      args?: Subset<T, DonationOptionCountArgs>,
+    count<T extends OrganisationCountArgs>(
+      args?: Subset<T, OrganisationCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], DonationOptionCountAggregateOutputType>
+          : GetScalarType<T['select'], OrganisationCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a DonationOption.
+     * Allows you to perform aggregations operations on a Organisation.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DonationOptionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {OrganisationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1725,13 +1725,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends DonationOptionAggregateArgs>(args: Subset<T, DonationOptionAggregateArgs>): Prisma.PrismaPromise<GetDonationOptionAggregateType<T>>
+    aggregate<T extends OrganisationAggregateArgs>(args: Subset<T, OrganisationAggregateArgs>): Prisma.PrismaPromise<GetOrganisationAggregateType<T>>
 
     /**
-     * Group by DonationOption.
+     * Group by Organisation.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DonationOptionGroupByArgs} args - Group by arguments.
+     * @param {OrganisationGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1746,14 +1746,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends DonationOptionGroupByArgs,
+      T extends OrganisationGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: DonationOptionGroupByArgs['orderBy'] }
-        : { orderBy?: DonationOptionGroupByArgs['orderBy'] },
+        ? { orderBy: OrganisationGroupByArgs['orderBy'] }
+        : { orderBy?: OrganisationGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1802,22 +1802,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, DonationOptionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDonationOptionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, OrganisationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOrganisationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the DonationOption model
+   * Fields of the Organisation model
    */
-  readonly fields: DonationOptionFieldRefs;
+  readonly fields: OrganisationFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for DonationOption.
+   * The delegate class that acts as a "Promise-like" for Organisation.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__DonationOptionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__OrganisationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    donationItems<T extends DonationOption$donationItemsArgs<ExtArgs> = {}>(args?: Subset<T, DonationOption$donationItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DonationItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    donationItems<T extends Organisation$donationItemsArgs<ExtArgs> = {}>(args?: Subset<T, Organisation$donationItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DonationItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1844,409 +1844,409 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the DonationOption model
+   * Fields of the Organisation model
    */
-  interface DonationOptionFieldRefs {
-    readonly id: FieldRef<"DonationOption", 'String'>
-    readonly name: FieldRef<"DonationOption", 'String'>
-    readonly description: FieldRef<"DonationOption", 'String'>
-    readonly suggestedAmount: FieldRef<"DonationOption", 'Float'>
-    readonly image: FieldRef<"DonationOption", 'String'>
-    readonly stripePriceId: FieldRef<"DonationOption", 'String'>
-    readonly isFeatured: FieldRef<"DonationOption", 'Boolean'>
-    readonly createdAt: FieldRef<"DonationOption", 'DateTime'>
-    readonly updatedAt: FieldRef<"DonationOption", 'DateTime'>
+  interface OrganisationFieldRefs {
+    readonly id: FieldRef<"Organisation", 'String'>
+    readonly name: FieldRef<"Organisation", 'String'>
+    readonly description: FieldRef<"Organisation", 'String'>
+    readonly suggestedAmount: FieldRef<"Organisation", 'Float'>
+    readonly image: FieldRef<"Organisation", 'String'>
+    readonly stripePriceId: FieldRef<"Organisation", 'String'>
+    readonly isFeatured: FieldRef<"Organisation", 'Boolean'>
+    readonly createdAt: FieldRef<"Organisation", 'DateTime'>
+    readonly updatedAt: FieldRef<"Organisation", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * DonationOption findUnique
+   * Organisation findUnique
    */
-  export type DonationOptionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DonationOption
+     * Select specific fields to fetch from the Organisation
      */
-    select?: DonationOptionSelect<ExtArgs> | null
+    select?: OrganisationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DonationOption
+     * Omit specific fields from the Organisation
      */
-    omit?: DonationOptionOmit<ExtArgs> | null
+    omit?: OrganisationOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DonationOptionInclude<ExtArgs> | null
+    include?: OrganisationInclude<ExtArgs> | null
     /**
-     * Filter, which DonationOption to fetch.
+     * Filter, which Organisation to fetch.
      */
-    where: DonationOptionWhereUniqueInput
+    where: OrganisationWhereUniqueInput
   }
 
   /**
-   * DonationOption findUniqueOrThrow
+   * Organisation findUniqueOrThrow
    */
-  export type DonationOptionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DonationOption
+     * Select specific fields to fetch from the Organisation
      */
-    select?: DonationOptionSelect<ExtArgs> | null
+    select?: OrganisationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DonationOption
+     * Omit specific fields from the Organisation
      */
-    omit?: DonationOptionOmit<ExtArgs> | null
+    omit?: OrganisationOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DonationOptionInclude<ExtArgs> | null
+    include?: OrganisationInclude<ExtArgs> | null
     /**
-     * Filter, which DonationOption to fetch.
+     * Filter, which Organisation to fetch.
      */
-    where: DonationOptionWhereUniqueInput
+    where: OrganisationWhereUniqueInput
   }
 
   /**
-   * DonationOption findFirst
+   * Organisation findFirst
    */
-  export type DonationOptionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DonationOption
+     * Select specific fields to fetch from the Organisation
      */
-    select?: DonationOptionSelect<ExtArgs> | null
+    select?: OrganisationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DonationOption
+     * Omit specific fields from the Organisation
      */
-    omit?: DonationOptionOmit<ExtArgs> | null
+    omit?: OrganisationOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DonationOptionInclude<ExtArgs> | null
+    include?: OrganisationInclude<ExtArgs> | null
     /**
-     * Filter, which DonationOption to fetch.
+     * Filter, which Organisation to fetch.
      */
-    where?: DonationOptionWhereInput
+    where?: OrganisationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of DonationOptions to fetch.
+     * Determine the order of Organisations to fetch.
      */
-    orderBy?: DonationOptionOrderByWithRelationInput | DonationOptionOrderByWithRelationInput[]
+    orderBy?: OrganisationOrderByWithRelationInput | OrganisationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for DonationOptions.
+     * Sets the position for searching for Organisations.
      */
-    cursor?: DonationOptionWhereUniqueInput
+    cursor?: OrganisationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` DonationOptions from the position of the cursor.
+     * Take `±n` Organisations from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` DonationOptions.
+     * Skip the first `n` Organisations.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of DonationOptions.
+     * Filter by unique combinations of Organisations.
      */
-    distinct?: DonationOptionScalarFieldEnum | DonationOptionScalarFieldEnum[]
+    distinct?: OrganisationScalarFieldEnum | OrganisationScalarFieldEnum[]
   }
 
   /**
-   * DonationOption findFirstOrThrow
+   * Organisation findFirstOrThrow
    */
-  export type DonationOptionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DonationOption
+     * Select specific fields to fetch from the Organisation
      */
-    select?: DonationOptionSelect<ExtArgs> | null
+    select?: OrganisationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DonationOption
+     * Omit specific fields from the Organisation
      */
-    omit?: DonationOptionOmit<ExtArgs> | null
+    omit?: OrganisationOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DonationOptionInclude<ExtArgs> | null
+    include?: OrganisationInclude<ExtArgs> | null
     /**
-     * Filter, which DonationOption to fetch.
+     * Filter, which Organisation to fetch.
      */
-    where?: DonationOptionWhereInput
+    where?: OrganisationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of DonationOptions to fetch.
+     * Determine the order of Organisations to fetch.
      */
-    orderBy?: DonationOptionOrderByWithRelationInput | DonationOptionOrderByWithRelationInput[]
+    orderBy?: OrganisationOrderByWithRelationInput | OrganisationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for DonationOptions.
+     * Sets the position for searching for Organisations.
      */
-    cursor?: DonationOptionWhereUniqueInput
+    cursor?: OrganisationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` DonationOptions from the position of the cursor.
+     * Take `±n` Organisations from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` DonationOptions.
+     * Skip the first `n` Organisations.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of DonationOptions.
+     * Filter by unique combinations of Organisations.
      */
-    distinct?: DonationOptionScalarFieldEnum | DonationOptionScalarFieldEnum[]
+    distinct?: OrganisationScalarFieldEnum | OrganisationScalarFieldEnum[]
   }
 
   /**
-   * DonationOption findMany
+   * Organisation findMany
    */
-  export type DonationOptionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DonationOption
+     * Select specific fields to fetch from the Organisation
      */
-    select?: DonationOptionSelect<ExtArgs> | null
+    select?: OrganisationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DonationOption
+     * Omit specific fields from the Organisation
      */
-    omit?: DonationOptionOmit<ExtArgs> | null
+    omit?: OrganisationOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DonationOptionInclude<ExtArgs> | null
+    include?: OrganisationInclude<ExtArgs> | null
     /**
-     * Filter, which DonationOptions to fetch.
+     * Filter, which Organisations to fetch.
      */
-    where?: DonationOptionWhereInput
+    where?: OrganisationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of DonationOptions to fetch.
+     * Determine the order of Organisations to fetch.
      */
-    orderBy?: DonationOptionOrderByWithRelationInput | DonationOptionOrderByWithRelationInput[]
+    orderBy?: OrganisationOrderByWithRelationInput | OrganisationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing DonationOptions.
+     * Sets the position for listing Organisations.
      */
-    cursor?: DonationOptionWhereUniqueInput
+    cursor?: OrganisationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` DonationOptions from the position of the cursor.
+     * Take `±n` Organisations from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` DonationOptions.
+     * Skip the first `n` Organisations.
      */
     skip?: number
-    distinct?: DonationOptionScalarFieldEnum | DonationOptionScalarFieldEnum[]
+    distinct?: OrganisationScalarFieldEnum | OrganisationScalarFieldEnum[]
   }
 
   /**
-   * DonationOption create
+   * Organisation create
    */
-  export type DonationOptionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DonationOption
+     * Select specific fields to fetch from the Organisation
      */
-    select?: DonationOptionSelect<ExtArgs> | null
+    select?: OrganisationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DonationOption
+     * Omit specific fields from the Organisation
      */
-    omit?: DonationOptionOmit<ExtArgs> | null
+    omit?: OrganisationOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DonationOptionInclude<ExtArgs> | null
+    include?: OrganisationInclude<ExtArgs> | null
     /**
-     * The data needed to create a DonationOption.
+     * The data needed to create a Organisation.
      */
-    data: XOR<DonationOptionCreateInput, DonationOptionUncheckedCreateInput>
+    data: XOR<OrganisationCreateInput, OrganisationUncheckedCreateInput>
   }
 
   /**
-   * DonationOption createMany
+   * Organisation createMany
    */
-  export type DonationOptionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many DonationOptions.
+     * The data used to create many Organisations.
      */
-    data: DonationOptionCreateManyInput | DonationOptionCreateManyInput[]
+    data: OrganisationCreateManyInput | OrganisationCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * DonationOption createManyAndReturn
+   * Organisation createManyAndReturn
    */
-  export type DonationOptionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DonationOption
+     * Select specific fields to fetch from the Organisation
      */
-    select?: DonationOptionSelectCreateManyAndReturn<ExtArgs> | null
+    select?: OrganisationSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the DonationOption
+     * Omit specific fields from the Organisation
      */
-    omit?: DonationOptionOmit<ExtArgs> | null
+    omit?: OrganisationOmit<ExtArgs> | null
     /**
-     * The data used to create many DonationOptions.
+     * The data used to create many Organisations.
      */
-    data: DonationOptionCreateManyInput | DonationOptionCreateManyInput[]
+    data: OrganisationCreateManyInput | OrganisationCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * DonationOption update
+   * Organisation update
    */
-  export type DonationOptionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DonationOption
+     * Select specific fields to fetch from the Organisation
      */
-    select?: DonationOptionSelect<ExtArgs> | null
+    select?: OrganisationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DonationOption
+     * Omit specific fields from the Organisation
      */
-    omit?: DonationOptionOmit<ExtArgs> | null
+    omit?: OrganisationOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DonationOptionInclude<ExtArgs> | null
+    include?: OrganisationInclude<ExtArgs> | null
     /**
-     * The data needed to update a DonationOption.
+     * The data needed to update a Organisation.
      */
-    data: XOR<DonationOptionUpdateInput, DonationOptionUncheckedUpdateInput>
+    data: XOR<OrganisationUpdateInput, OrganisationUncheckedUpdateInput>
     /**
-     * Choose, which DonationOption to update.
+     * Choose, which Organisation to update.
      */
-    where: DonationOptionWhereUniqueInput
+    where: OrganisationWhereUniqueInput
   }
 
   /**
-   * DonationOption updateMany
+   * Organisation updateMany
    */
-  export type DonationOptionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update DonationOptions.
+     * The data used to update Organisations.
      */
-    data: XOR<DonationOptionUpdateManyMutationInput, DonationOptionUncheckedUpdateManyInput>
+    data: XOR<OrganisationUpdateManyMutationInput, OrganisationUncheckedUpdateManyInput>
     /**
-     * Filter which DonationOptions to update
+     * Filter which Organisations to update
      */
-    where?: DonationOptionWhereInput
+    where?: OrganisationWhereInput
     /**
-     * Limit how many DonationOptions to update.
+     * Limit how many Organisations to update.
      */
     limit?: number
   }
 
   /**
-   * DonationOption updateManyAndReturn
+   * Organisation updateManyAndReturn
    */
-  export type DonationOptionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DonationOption
+     * Select specific fields to fetch from the Organisation
      */
-    select?: DonationOptionSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: OrganisationSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the DonationOption
+     * Omit specific fields from the Organisation
      */
-    omit?: DonationOptionOmit<ExtArgs> | null
+    omit?: OrganisationOmit<ExtArgs> | null
     /**
-     * The data used to update DonationOptions.
+     * The data used to update Organisations.
      */
-    data: XOR<DonationOptionUpdateManyMutationInput, DonationOptionUncheckedUpdateManyInput>
+    data: XOR<OrganisationUpdateManyMutationInput, OrganisationUncheckedUpdateManyInput>
     /**
-     * Filter which DonationOptions to update
+     * Filter which Organisations to update
      */
-    where?: DonationOptionWhereInput
+    where?: OrganisationWhereInput
     /**
-     * Limit how many DonationOptions to update.
+     * Limit how many Organisations to update.
      */
     limit?: number
   }
 
   /**
-   * DonationOption upsert
+   * Organisation upsert
    */
-  export type DonationOptionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DonationOption
+     * Select specific fields to fetch from the Organisation
      */
-    select?: DonationOptionSelect<ExtArgs> | null
+    select?: OrganisationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DonationOption
+     * Omit specific fields from the Organisation
      */
-    omit?: DonationOptionOmit<ExtArgs> | null
+    omit?: OrganisationOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DonationOptionInclude<ExtArgs> | null
+    include?: OrganisationInclude<ExtArgs> | null
     /**
-     * The filter to search for the DonationOption to update in case it exists.
+     * The filter to search for the Organisation to update in case it exists.
      */
-    where: DonationOptionWhereUniqueInput
+    where: OrganisationWhereUniqueInput
     /**
-     * In case the DonationOption found by the `where` argument doesn't exist, create a new DonationOption with this data.
+     * In case the Organisation found by the `where` argument doesn't exist, create a new Organisation with this data.
      */
-    create: XOR<DonationOptionCreateInput, DonationOptionUncheckedCreateInput>
+    create: XOR<OrganisationCreateInput, OrganisationUncheckedCreateInput>
     /**
-     * In case the DonationOption was found with the provided `where` argument, update it with this data.
+     * In case the Organisation was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<DonationOptionUpdateInput, DonationOptionUncheckedUpdateInput>
+    update: XOR<OrganisationUpdateInput, OrganisationUncheckedUpdateInput>
   }
 
   /**
-   * DonationOption delete
+   * Organisation delete
    */
-  export type DonationOptionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DonationOption
+     * Select specific fields to fetch from the Organisation
      */
-    select?: DonationOptionSelect<ExtArgs> | null
+    select?: OrganisationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DonationOption
+     * Omit specific fields from the Organisation
      */
-    omit?: DonationOptionOmit<ExtArgs> | null
+    omit?: OrganisationOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DonationOptionInclude<ExtArgs> | null
+    include?: OrganisationInclude<ExtArgs> | null
     /**
-     * Filter which DonationOption to delete.
+     * Filter which Organisation to delete.
      */
-    where: DonationOptionWhereUniqueInput
+    where: OrganisationWhereUniqueInput
   }
 
   /**
-   * DonationOption deleteMany
+   * Organisation deleteMany
    */
-  export type DonationOptionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which DonationOptions to delete
+     * Filter which Organisations to delete
      */
-    where?: DonationOptionWhereInput
+    where?: OrganisationWhereInput
     /**
-     * Limit how many DonationOptions to delete.
+     * Limit how many Organisations to delete.
      */
     limit?: number
   }
 
   /**
-   * DonationOption.donationItems
+   * Organisation.donationItems
    */
-  export type DonationOption$donationItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Organisation$donationItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the DonationItem
      */
@@ -2268,21 +2268,21 @@ export namespace Prisma {
   }
 
   /**
-   * DonationOption without action
+   * Organisation without action
    */
-  export type DonationOptionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OrganisationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DonationOption
+     * Select specific fields to fetch from the Organisation
      */
-    select?: DonationOptionSelect<ExtArgs> | null
+    select?: OrganisationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the DonationOption
+     * Omit specific fields from the Organisation
      */
-    omit?: DonationOptionOmit<ExtArgs> | null
+    omit?: OrganisationOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: DonationOptionInclude<ExtArgs> | null
+    include?: OrganisationInclude<ExtArgs> | null
   }
 
 
@@ -3441,7 +3441,7 @@ export namespace Prisma {
   export type DonationItemMinAggregateOutputType = {
     id: string | null
     donationId: string | null
-    donationOptionId: string | null
+    organisationId: string | null
     quantity: number | null
     amount: number | null
   }
@@ -3449,7 +3449,7 @@ export namespace Prisma {
   export type DonationItemMaxAggregateOutputType = {
     id: string | null
     donationId: string | null
-    donationOptionId: string | null
+    organisationId: string | null
     quantity: number | null
     amount: number | null
   }
@@ -3457,7 +3457,7 @@ export namespace Prisma {
   export type DonationItemCountAggregateOutputType = {
     id: number
     donationId: number
-    donationOptionId: number
+    organisationId: number
     quantity: number
     amount: number
     _all: number
@@ -3477,7 +3477,7 @@ export namespace Prisma {
   export type DonationItemMinAggregateInputType = {
     id?: true
     donationId?: true
-    donationOptionId?: true
+    organisationId?: true
     quantity?: true
     amount?: true
   }
@@ -3485,7 +3485,7 @@ export namespace Prisma {
   export type DonationItemMaxAggregateInputType = {
     id?: true
     donationId?: true
-    donationOptionId?: true
+    organisationId?: true
     quantity?: true
     amount?: true
   }
@@ -3493,7 +3493,7 @@ export namespace Prisma {
   export type DonationItemCountAggregateInputType = {
     id?: true
     donationId?: true
-    donationOptionId?: true
+    organisationId?: true
     quantity?: true
     amount?: true
     _all?: true
@@ -3588,7 +3588,7 @@ export namespace Prisma {
   export type DonationItemGroupByOutputType = {
     id: string
     donationId: string
-    donationOptionId: string
+    organisationId: string
     quantity: number
     amount: number
     _count: DonationItemCountAggregateOutputType | null
@@ -3615,65 +3615,65 @@ export namespace Prisma {
   export type DonationItemSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     donationId?: boolean
-    donationOptionId?: boolean
+    organisationId?: boolean
     quantity?: boolean
     amount?: boolean
     donation?: boolean | DonationDefaultArgs<ExtArgs>
-    donationOption?: boolean | DonationOptionDefaultArgs<ExtArgs>
+    Organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["donationItem"]>
 
   export type DonationItemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     donationId?: boolean
-    donationOptionId?: boolean
+    organisationId?: boolean
     quantity?: boolean
     amount?: boolean
     donation?: boolean | DonationDefaultArgs<ExtArgs>
-    donationOption?: boolean | DonationOptionDefaultArgs<ExtArgs>
+    Organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["donationItem"]>
 
   export type DonationItemSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     donationId?: boolean
-    donationOptionId?: boolean
+    organisationId?: boolean
     quantity?: boolean
     amount?: boolean
     donation?: boolean | DonationDefaultArgs<ExtArgs>
-    donationOption?: boolean | DonationOptionDefaultArgs<ExtArgs>
+    Organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["donationItem"]>
 
   export type DonationItemSelectScalar = {
     id?: boolean
     donationId?: boolean
-    donationOptionId?: boolean
+    organisationId?: boolean
     quantity?: boolean
     amount?: boolean
   }
 
-  export type DonationItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "donationId" | "donationOptionId" | "quantity" | "amount", ExtArgs["result"]["donationItem"]>
+  export type DonationItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "donationId" | "organisationId" | "quantity" | "amount", ExtArgs["result"]["donationItem"]>
   export type DonationItemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     donation?: boolean | DonationDefaultArgs<ExtArgs>
-    donationOption?: boolean | DonationOptionDefaultArgs<ExtArgs>
+    Organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
   }
   export type DonationItemIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     donation?: boolean | DonationDefaultArgs<ExtArgs>
-    donationOption?: boolean | DonationOptionDefaultArgs<ExtArgs>
+    Organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
   }
   export type DonationItemIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     donation?: boolean | DonationDefaultArgs<ExtArgs>
-    donationOption?: boolean | DonationOptionDefaultArgs<ExtArgs>
+    Organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
   }
 
   export type $DonationItemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "DonationItem"
     objects: {
       donation: Prisma.$DonationPayload<ExtArgs>
-      donationOption: Prisma.$DonationOptionPayload<ExtArgs>
+      Organisation: Prisma.$OrganisationPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       donationId: string
-      donationOptionId: string
+      organisationId: string
       quantity: number
       amount: number
     }, ExtArgs["result"]["donationItem"]>
@@ -4071,7 +4071,7 @@ export namespace Prisma {
   export interface Prisma__DonationItemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     donation<T extends DonationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DonationDefaultArgs<ExtArgs>>): Prisma__DonationClient<$Result.GetResult<Prisma.$DonationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    donationOption<T extends DonationOptionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DonationOptionDefaultArgs<ExtArgs>>): Prisma__DonationOptionClient<$Result.GetResult<Prisma.$DonationOptionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Organisation<T extends OrganisationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, OrganisationDefaultArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4103,7 +4103,7 @@ export namespace Prisma {
   interface DonationItemFieldRefs {
     readonly id: FieldRef<"DonationItem", 'String'>
     readonly donationId: FieldRef<"DonationItem", 'String'>
-    readonly donationOptionId: FieldRef<"DonationItem", 'String'>
+    readonly organisationId: FieldRef<"DonationItem", 'String'>
     readonly quantity: FieldRef<"DonationItem", 'Int'>
     readonly amount: FieldRef<"DonationItem", 'Float'>
   }
@@ -4534,7 +4534,7 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const DonationOptionScalarFieldEnum: {
+  export const OrganisationScalarFieldEnum: {
     id: 'id',
     name: 'name',
     description: 'description',
@@ -4546,7 +4546,7 @@ export namespace Prisma {
     updatedAt: 'updatedAt'
   };
 
-  export type DonationOptionScalarFieldEnum = (typeof DonationOptionScalarFieldEnum)[keyof typeof DonationOptionScalarFieldEnum]
+  export type OrganisationScalarFieldEnum = (typeof OrganisationScalarFieldEnum)[keyof typeof OrganisationScalarFieldEnum]
 
 
   export const DonationScalarFieldEnum: {
@@ -4565,7 +4565,7 @@ export namespace Prisma {
   export const DonationItemScalarFieldEnum: {
     id: 'id',
     donationId: 'donationId',
-    donationOptionId: 'donationOptionId',
+    organisationId: 'organisationId',
     quantity: 'quantity',
     amount: 'amount'
   };
@@ -4682,23 +4682,23 @@ export namespace Prisma {
    */
 
 
-  export type DonationOptionWhereInput = {
-    AND?: DonationOptionWhereInput | DonationOptionWhereInput[]
-    OR?: DonationOptionWhereInput[]
-    NOT?: DonationOptionWhereInput | DonationOptionWhereInput[]
-    id?: StringFilter<"DonationOption"> | string
-    name?: StringFilter<"DonationOption"> | string
-    description?: StringFilter<"DonationOption"> | string
-    suggestedAmount?: FloatFilter<"DonationOption"> | number
-    image?: StringFilter<"DonationOption"> | string
-    stripePriceId?: StringFilter<"DonationOption"> | string
-    isFeatured?: BoolFilter<"DonationOption"> | boolean
-    createdAt?: DateTimeFilter<"DonationOption"> | Date | string
-    updatedAt?: DateTimeFilter<"DonationOption"> | Date | string
+  export type OrganisationWhereInput = {
+    AND?: OrganisationWhereInput | OrganisationWhereInput[]
+    OR?: OrganisationWhereInput[]
+    NOT?: OrganisationWhereInput | OrganisationWhereInput[]
+    id?: StringFilter<"Organisation"> | string
+    name?: StringFilter<"Organisation"> | string
+    description?: StringFilter<"Organisation"> | string
+    suggestedAmount?: FloatFilter<"Organisation"> | number
+    image?: StringFilter<"Organisation"> | string
+    stripePriceId?: StringFilter<"Organisation"> | string
+    isFeatured?: BoolFilter<"Organisation"> | boolean
+    createdAt?: DateTimeFilter<"Organisation"> | Date | string
+    updatedAt?: DateTimeFilter<"Organisation"> | Date | string
     donationItems?: DonationItemListRelationFilter
   }
 
-  export type DonationOptionOrderByWithRelationInput = {
+  export type OrganisationOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
@@ -4711,23 +4711,23 @@ export namespace Prisma {
     donationItems?: DonationItemOrderByRelationAggregateInput
   }
 
-  export type DonationOptionWhereUniqueInput = Prisma.AtLeast<{
+  export type OrganisationWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: DonationOptionWhereInput | DonationOptionWhereInput[]
-    OR?: DonationOptionWhereInput[]
-    NOT?: DonationOptionWhereInput | DonationOptionWhereInput[]
-    name?: StringFilter<"DonationOption"> | string
-    description?: StringFilter<"DonationOption"> | string
-    suggestedAmount?: FloatFilter<"DonationOption"> | number
-    image?: StringFilter<"DonationOption"> | string
-    stripePriceId?: StringFilter<"DonationOption"> | string
-    isFeatured?: BoolFilter<"DonationOption"> | boolean
-    createdAt?: DateTimeFilter<"DonationOption"> | Date | string
-    updatedAt?: DateTimeFilter<"DonationOption"> | Date | string
+    AND?: OrganisationWhereInput | OrganisationWhereInput[]
+    OR?: OrganisationWhereInput[]
+    NOT?: OrganisationWhereInput | OrganisationWhereInput[]
+    name?: StringFilter<"Organisation"> | string
+    description?: StringFilter<"Organisation"> | string
+    suggestedAmount?: FloatFilter<"Organisation"> | number
+    image?: StringFilter<"Organisation"> | string
+    stripePriceId?: StringFilter<"Organisation"> | string
+    isFeatured?: BoolFilter<"Organisation"> | boolean
+    createdAt?: DateTimeFilter<"Organisation"> | Date | string
+    updatedAt?: DateTimeFilter<"Organisation"> | Date | string
     donationItems?: DonationItemListRelationFilter
   }, "id">
 
-  export type DonationOptionOrderByWithAggregationInput = {
+  export type OrganisationOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
@@ -4737,26 +4737,26 @@ export namespace Prisma {
     isFeatured?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: DonationOptionCountOrderByAggregateInput
-    _avg?: DonationOptionAvgOrderByAggregateInput
-    _max?: DonationOptionMaxOrderByAggregateInput
-    _min?: DonationOptionMinOrderByAggregateInput
-    _sum?: DonationOptionSumOrderByAggregateInput
+    _count?: OrganisationCountOrderByAggregateInput
+    _avg?: OrganisationAvgOrderByAggregateInput
+    _max?: OrganisationMaxOrderByAggregateInput
+    _min?: OrganisationMinOrderByAggregateInput
+    _sum?: OrganisationSumOrderByAggregateInput
   }
 
-  export type DonationOptionScalarWhereWithAggregatesInput = {
-    AND?: DonationOptionScalarWhereWithAggregatesInput | DonationOptionScalarWhereWithAggregatesInput[]
-    OR?: DonationOptionScalarWhereWithAggregatesInput[]
-    NOT?: DonationOptionScalarWhereWithAggregatesInput | DonationOptionScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"DonationOption"> | string
-    name?: StringWithAggregatesFilter<"DonationOption"> | string
-    description?: StringWithAggregatesFilter<"DonationOption"> | string
-    suggestedAmount?: FloatWithAggregatesFilter<"DonationOption"> | number
-    image?: StringWithAggregatesFilter<"DonationOption"> | string
-    stripePriceId?: StringWithAggregatesFilter<"DonationOption"> | string
-    isFeatured?: BoolWithAggregatesFilter<"DonationOption"> | boolean
-    createdAt?: DateTimeWithAggregatesFilter<"DonationOption"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"DonationOption"> | Date | string
+  export type OrganisationScalarWhereWithAggregatesInput = {
+    AND?: OrganisationScalarWhereWithAggregatesInput | OrganisationScalarWhereWithAggregatesInput[]
+    OR?: OrganisationScalarWhereWithAggregatesInput[]
+    NOT?: OrganisationScalarWhereWithAggregatesInput | OrganisationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Organisation"> | string
+    name?: StringWithAggregatesFilter<"Organisation"> | string
+    description?: StringWithAggregatesFilter<"Organisation"> | string
+    suggestedAmount?: FloatWithAggregatesFilter<"Organisation"> | number
+    image?: StringWithAggregatesFilter<"Organisation"> | string
+    stripePriceId?: StringWithAggregatesFilter<"Organisation"> | string
+    isFeatured?: BoolWithAggregatesFilter<"Organisation"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Organisation"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Organisation"> | Date | string
   }
 
   export type DonationWhereInput = {
@@ -4832,21 +4832,21 @@ export namespace Prisma {
     NOT?: DonationItemWhereInput | DonationItemWhereInput[]
     id?: StringFilter<"DonationItem"> | string
     donationId?: StringFilter<"DonationItem"> | string
-    donationOptionId?: StringFilter<"DonationItem"> | string
+    organisationId?: StringFilter<"DonationItem"> | string
     quantity?: IntFilter<"DonationItem"> | number
     amount?: FloatFilter<"DonationItem"> | number
     donation?: XOR<DonationScalarRelationFilter, DonationWhereInput>
-    donationOption?: XOR<DonationOptionScalarRelationFilter, DonationOptionWhereInput>
+    Organisation?: XOR<OrganisationScalarRelationFilter, OrganisationWhereInput>
   }
 
   export type DonationItemOrderByWithRelationInput = {
     id?: SortOrder
     donationId?: SortOrder
-    donationOptionId?: SortOrder
+    organisationId?: SortOrder
     quantity?: SortOrder
     amount?: SortOrder
     donation?: DonationOrderByWithRelationInput
-    donationOption?: DonationOptionOrderByWithRelationInput
+    Organisation?: OrganisationOrderByWithRelationInput
   }
 
   export type DonationItemWhereUniqueInput = Prisma.AtLeast<{
@@ -4855,17 +4855,17 @@ export namespace Prisma {
     OR?: DonationItemWhereInput[]
     NOT?: DonationItemWhereInput | DonationItemWhereInput[]
     donationId?: StringFilter<"DonationItem"> | string
-    donationOptionId?: StringFilter<"DonationItem"> | string
+    organisationId?: StringFilter<"DonationItem"> | string
     quantity?: IntFilter<"DonationItem"> | number
     amount?: FloatFilter<"DonationItem"> | number
     donation?: XOR<DonationScalarRelationFilter, DonationWhereInput>
-    donationOption?: XOR<DonationOptionScalarRelationFilter, DonationOptionWhereInput>
+    Organisation?: XOR<OrganisationScalarRelationFilter, OrganisationWhereInput>
   }, "id">
 
   export type DonationItemOrderByWithAggregationInput = {
     id?: SortOrder
     donationId?: SortOrder
-    donationOptionId?: SortOrder
+    organisationId?: SortOrder
     quantity?: SortOrder
     amount?: SortOrder
     _count?: DonationItemCountOrderByAggregateInput
@@ -4881,12 +4881,12 @@ export namespace Prisma {
     NOT?: DonationItemScalarWhereWithAggregatesInput | DonationItemScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"DonationItem"> | string
     donationId?: StringWithAggregatesFilter<"DonationItem"> | string
-    donationOptionId?: StringWithAggregatesFilter<"DonationItem"> | string
+    organisationId?: StringWithAggregatesFilter<"DonationItem"> | string
     quantity?: IntWithAggregatesFilter<"DonationItem"> | number
     amount?: FloatWithAggregatesFilter<"DonationItem"> | number
   }
 
-  export type DonationOptionCreateInput = {
+  export type OrganisationCreateInput = {
     id?: string
     name: string
     description: string
@@ -4896,10 +4896,10 @@ export namespace Prisma {
     isFeatured?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    donationItems?: DonationItemCreateNestedManyWithoutDonationOptionInput
+    donationItems?: DonationItemCreateNestedManyWithoutOrganisationInput
   }
 
-  export type DonationOptionUncheckedCreateInput = {
+  export type OrganisationUncheckedCreateInput = {
     id?: string
     name: string
     description: string
@@ -4909,10 +4909,10 @@ export namespace Prisma {
     isFeatured?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    donationItems?: DonationItemUncheckedCreateNestedManyWithoutDonationOptionInput
+    donationItems?: DonationItemUncheckedCreateNestedManyWithoutOrganisationInput
   }
 
-  export type DonationOptionUpdateInput = {
+  export type OrganisationUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -4922,10 +4922,10 @@ export namespace Prisma {
     isFeatured?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    donationItems?: DonationItemUpdateManyWithoutDonationOptionNestedInput
+    donationItems?: DonationItemUpdateManyWithoutOrganisationNestedInput
   }
 
-  export type DonationOptionUncheckedUpdateInput = {
+  export type OrganisationUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -4935,10 +4935,10 @@ export namespace Prisma {
     isFeatured?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    donationItems?: DonationItemUncheckedUpdateManyWithoutDonationOptionNestedInput
+    donationItems?: DonationItemUncheckedUpdateManyWithoutOrganisationNestedInput
   }
 
-  export type DonationOptionCreateManyInput = {
+  export type OrganisationCreateManyInput = {
     id?: string
     name: string
     description: string
@@ -4950,7 +4950,7 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type DonationOptionUpdateManyMutationInput = {
+  export type OrganisationUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -4962,7 +4962,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type DonationOptionUncheckedUpdateManyInput = {
+  export type OrganisationUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -5053,13 +5053,13 @@ export namespace Prisma {
     quantity: number
     amount: number
     donation: DonationCreateNestedOneWithoutItemsInput
-    donationOption: DonationOptionCreateNestedOneWithoutDonationItemsInput
+    Organisation: OrganisationCreateNestedOneWithoutDonationItemsInput
   }
 
   export type DonationItemUncheckedCreateInput = {
     id?: string
     donationId: string
-    donationOptionId: string
+    organisationId: string
     quantity: number
     amount: number
   }
@@ -5069,13 +5069,13 @@ export namespace Prisma {
     quantity?: IntFieldUpdateOperationsInput | number
     amount?: FloatFieldUpdateOperationsInput | number
     donation?: DonationUpdateOneRequiredWithoutItemsNestedInput
-    donationOption?: DonationOptionUpdateOneRequiredWithoutDonationItemsNestedInput
+    Organisation?: OrganisationUpdateOneRequiredWithoutDonationItemsNestedInput
   }
 
   export type DonationItemUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     donationId?: StringFieldUpdateOperationsInput | string
-    donationOptionId?: StringFieldUpdateOperationsInput | string
+    organisationId?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
     amount?: FloatFieldUpdateOperationsInput | number
   }
@@ -5083,7 +5083,7 @@ export namespace Prisma {
   export type DonationItemCreateManyInput = {
     id?: string
     donationId: string
-    donationOptionId: string
+    organisationId: string
     quantity: number
     amount: number
   }
@@ -5097,7 +5097,7 @@ export namespace Prisma {
   export type DonationItemUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     donationId?: StringFieldUpdateOperationsInput | string
-    donationOptionId?: StringFieldUpdateOperationsInput | string
+    organisationId?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
     amount?: FloatFieldUpdateOperationsInput | number
   }
@@ -5154,7 +5154,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type DonationOptionCountOrderByAggregateInput = {
+  export type OrganisationCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
@@ -5166,11 +5166,11 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type DonationOptionAvgOrderByAggregateInput = {
+  export type OrganisationAvgOrderByAggregateInput = {
     suggestedAmount?: SortOrder
   }
 
-  export type DonationOptionMaxOrderByAggregateInput = {
+  export type OrganisationMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
@@ -5182,7 +5182,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type DonationOptionMinOrderByAggregateInput = {
+  export type OrganisationMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
@@ -5194,7 +5194,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type DonationOptionSumOrderByAggregateInput = {
+  export type OrganisationSumOrderByAggregateInput = {
     suggestedAmount?: SortOrder
   }
 
@@ -5363,15 +5363,15 @@ export namespace Prisma {
     isNot?: DonationWhereInput
   }
 
-  export type DonationOptionScalarRelationFilter = {
-    is?: DonationOptionWhereInput
-    isNot?: DonationOptionWhereInput
+  export type OrganisationScalarRelationFilter = {
+    is?: OrganisationWhereInput
+    isNot?: OrganisationWhereInput
   }
 
   export type DonationItemCountOrderByAggregateInput = {
     id?: SortOrder
     donationId?: SortOrder
-    donationOptionId?: SortOrder
+    organisationId?: SortOrder
     quantity?: SortOrder
     amount?: SortOrder
   }
@@ -5384,7 +5384,7 @@ export namespace Prisma {
   export type DonationItemMaxOrderByAggregateInput = {
     id?: SortOrder
     donationId?: SortOrder
-    donationOptionId?: SortOrder
+    organisationId?: SortOrder
     quantity?: SortOrder
     amount?: SortOrder
   }
@@ -5392,7 +5392,7 @@ export namespace Prisma {
   export type DonationItemMinOrderByAggregateInput = {
     id?: SortOrder
     donationId?: SortOrder
-    donationOptionId?: SortOrder
+    organisationId?: SortOrder
     quantity?: SortOrder
     amount?: SortOrder
   }
@@ -5418,17 +5418,17 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type DonationItemCreateNestedManyWithoutDonationOptionInput = {
-    create?: XOR<DonationItemCreateWithoutDonationOptionInput, DonationItemUncheckedCreateWithoutDonationOptionInput> | DonationItemCreateWithoutDonationOptionInput[] | DonationItemUncheckedCreateWithoutDonationOptionInput[]
-    connectOrCreate?: DonationItemCreateOrConnectWithoutDonationOptionInput | DonationItemCreateOrConnectWithoutDonationOptionInput[]
-    createMany?: DonationItemCreateManyDonationOptionInputEnvelope
+  export type DonationItemCreateNestedManyWithoutOrganisationInput = {
+    create?: XOR<DonationItemCreateWithoutOrganisationInput, DonationItemUncheckedCreateWithoutOrganisationInput> | DonationItemCreateWithoutOrganisationInput[] | DonationItemUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: DonationItemCreateOrConnectWithoutOrganisationInput | DonationItemCreateOrConnectWithoutOrganisationInput[]
+    createMany?: DonationItemCreateManyOrganisationInputEnvelope
     connect?: DonationItemWhereUniqueInput | DonationItemWhereUniqueInput[]
   }
 
-  export type DonationItemUncheckedCreateNestedManyWithoutDonationOptionInput = {
-    create?: XOR<DonationItemCreateWithoutDonationOptionInput, DonationItemUncheckedCreateWithoutDonationOptionInput> | DonationItemCreateWithoutDonationOptionInput[] | DonationItemUncheckedCreateWithoutDonationOptionInput[]
-    connectOrCreate?: DonationItemCreateOrConnectWithoutDonationOptionInput | DonationItemCreateOrConnectWithoutDonationOptionInput[]
-    createMany?: DonationItemCreateManyDonationOptionInputEnvelope
+  export type DonationItemUncheckedCreateNestedManyWithoutOrganisationInput = {
+    create?: XOR<DonationItemCreateWithoutOrganisationInput, DonationItemUncheckedCreateWithoutOrganisationInput> | DonationItemCreateWithoutOrganisationInput[] | DonationItemUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: DonationItemCreateOrConnectWithoutOrganisationInput | DonationItemCreateOrConnectWithoutOrganisationInput[]
+    createMany?: DonationItemCreateManyOrganisationInputEnvelope
     connect?: DonationItemWhereUniqueInput | DonationItemWhereUniqueInput[]
   }
 
@@ -5452,31 +5452,31 @@ export namespace Prisma {
     set?: Date | string
   }
 
-  export type DonationItemUpdateManyWithoutDonationOptionNestedInput = {
-    create?: XOR<DonationItemCreateWithoutDonationOptionInput, DonationItemUncheckedCreateWithoutDonationOptionInput> | DonationItemCreateWithoutDonationOptionInput[] | DonationItemUncheckedCreateWithoutDonationOptionInput[]
-    connectOrCreate?: DonationItemCreateOrConnectWithoutDonationOptionInput | DonationItemCreateOrConnectWithoutDonationOptionInput[]
-    upsert?: DonationItemUpsertWithWhereUniqueWithoutDonationOptionInput | DonationItemUpsertWithWhereUniqueWithoutDonationOptionInput[]
-    createMany?: DonationItemCreateManyDonationOptionInputEnvelope
+  export type DonationItemUpdateManyWithoutOrganisationNestedInput = {
+    create?: XOR<DonationItemCreateWithoutOrganisationInput, DonationItemUncheckedCreateWithoutOrganisationInput> | DonationItemCreateWithoutOrganisationInput[] | DonationItemUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: DonationItemCreateOrConnectWithoutOrganisationInput | DonationItemCreateOrConnectWithoutOrganisationInput[]
+    upsert?: DonationItemUpsertWithWhereUniqueWithoutOrganisationInput | DonationItemUpsertWithWhereUniqueWithoutOrganisationInput[]
+    createMany?: DonationItemCreateManyOrganisationInputEnvelope
     set?: DonationItemWhereUniqueInput | DonationItemWhereUniqueInput[]
     disconnect?: DonationItemWhereUniqueInput | DonationItemWhereUniqueInput[]
     delete?: DonationItemWhereUniqueInput | DonationItemWhereUniqueInput[]
     connect?: DonationItemWhereUniqueInput | DonationItemWhereUniqueInput[]
-    update?: DonationItemUpdateWithWhereUniqueWithoutDonationOptionInput | DonationItemUpdateWithWhereUniqueWithoutDonationOptionInput[]
-    updateMany?: DonationItemUpdateManyWithWhereWithoutDonationOptionInput | DonationItemUpdateManyWithWhereWithoutDonationOptionInput[]
+    update?: DonationItemUpdateWithWhereUniqueWithoutOrganisationInput | DonationItemUpdateWithWhereUniqueWithoutOrganisationInput[]
+    updateMany?: DonationItemUpdateManyWithWhereWithoutOrganisationInput | DonationItemUpdateManyWithWhereWithoutOrganisationInput[]
     deleteMany?: DonationItemScalarWhereInput | DonationItemScalarWhereInput[]
   }
 
-  export type DonationItemUncheckedUpdateManyWithoutDonationOptionNestedInput = {
-    create?: XOR<DonationItemCreateWithoutDonationOptionInput, DonationItemUncheckedCreateWithoutDonationOptionInput> | DonationItemCreateWithoutDonationOptionInput[] | DonationItemUncheckedCreateWithoutDonationOptionInput[]
-    connectOrCreate?: DonationItemCreateOrConnectWithoutDonationOptionInput | DonationItemCreateOrConnectWithoutDonationOptionInput[]
-    upsert?: DonationItemUpsertWithWhereUniqueWithoutDonationOptionInput | DonationItemUpsertWithWhereUniqueWithoutDonationOptionInput[]
-    createMany?: DonationItemCreateManyDonationOptionInputEnvelope
+  export type DonationItemUncheckedUpdateManyWithoutOrganisationNestedInput = {
+    create?: XOR<DonationItemCreateWithoutOrganisationInput, DonationItemUncheckedCreateWithoutOrganisationInput> | DonationItemCreateWithoutOrganisationInput[] | DonationItemUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: DonationItemCreateOrConnectWithoutOrganisationInput | DonationItemCreateOrConnectWithoutOrganisationInput[]
+    upsert?: DonationItemUpsertWithWhereUniqueWithoutOrganisationInput | DonationItemUpsertWithWhereUniqueWithoutOrganisationInput[]
+    createMany?: DonationItemCreateManyOrganisationInputEnvelope
     set?: DonationItemWhereUniqueInput | DonationItemWhereUniqueInput[]
     disconnect?: DonationItemWhereUniqueInput | DonationItemWhereUniqueInput[]
     delete?: DonationItemWhereUniqueInput | DonationItemWhereUniqueInput[]
     connect?: DonationItemWhereUniqueInput | DonationItemWhereUniqueInput[]
-    update?: DonationItemUpdateWithWhereUniqueWithoutDonationOptionInput | DonationItemUpdateWithWhereUniqueWithoutDonationOptionInput[]
-    updateMany?: DonationItemUpdateManyWithWhereWithoutDonationOptionInput | DonationItemUpdateManyWithWhereWithoutDonationOptionInput[]
+    update?: DonationItemUpdateWithWhereUniqueWithoutOrganisationInput | DonationItemUpdateWithWhereUniqueWithoutOrganisationInput[]
+    updateMany?: DonationItemUpdateManyWithWhereWithoutOrganisationInput | DonationItemUpdateManyWithWhereWithoutOrganisationInput[]
     deleteMany?: DonationItemScalarWhereInput | DonationItemScalarWhereInput[]
   }
 
@@ -5536,10 +5536,10 @@ export namespace Prisma {
     connect?: DonationWhereUniqueInput
   }
 
-  export type DonationOptionCreateNestedOneWithoutDonationItemsInput = {
-    create?: XOR<DonationOptionCreateWithoutDonationItemsInput, DonationOptionUncheckedCreateWithoutDonationItemsInput>
-    connectOrCreate?: DonationOptionCreateOrConnectWithoutDonationItemsInput
-    connect?: DonationOptionWhereUniqueInput
+  export type OrganisationCreateNestedOneWithoutDonationItemsInput = {
+    create?: XOR<OrganisationCreateWithoutDonationItemsInput, OrganisationUncheckedCreateWithoutDonationItemsInput>
+    connectOrCreate?: OrganisationCreateOrConnectWithoutDonationItemsInput
+    connect?: OrganisationWhereUniqueInput
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -5558,12 +5558,12 @@ export namespace Prisma {
     update?: XOR<XOR<DonationUpdateToOneWithWhereWithoutItemsInput, DonationUpdateWithoutItemsInput>, DonationUncheckedUpdateWithoutItemsInput>
   }
 
-  export type DonationOptionUpdateOneRequiredWithoutDonationItemsNestedInput = {
-    create?: XOR<DonationOptionCreateWithoutDonationItemsInput, DonationOptionUncheckedCreateWithoutDonationItemsInput>
-    connectOrCreate?: DonationOptionCreateOrConnectWithoutDonationItemsInput
-    upsert?: DonationOptionUpsertWithoutDonationItemsInput
-    connect?: DonationOptionWhereUniqueInput
-    update?: XOR<XOR<DonationOptionUpdateToOneWithWhereWithoutDonationItemsInput, DonationOptionUpdateWithoutDonationItemsInput>, DonationOptionUncheckedUpdateWithoutDonationItemsInput>
+  export type OrganisationUpdateOneRequiredWithoutDonationItemsNestedInput = {
+    create?: XOR<OrganisationCreateWithoutDonationItemsInput, OrganisationUncheckedCreateWithoutDonationItemsInput>
+    connectOrCreate?: OrganisationCreateOrConnectWithoutDonationItemsInput
+    upsert?: OrganisationUpsertWithoutDonationItemsInput
+    connect?: OrganisationWhereUniqueInput
+    update?: XOR<XOR<OrganisationUpdateToOneWithWhereWithoutDonationItemsInput, OrganisationUpdateWithoutDonationItemsInput>, OrganisationUncheckedUpdateWithoutDonationItemsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -5748,44 +5748,44 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type DonationItemCreateWithoutDonationOptionInput = {
+  export type DonationItemCreateWithoutOrganisationInput = {
     id?: string
     quantity: number
     amount: number
     donation: DonationCreateNestedOneWithoutItemsInput
   }
 
-  export type DonationItemUncheckedCreateWithoutDonationOptionInput = {
+  export type DonationItemUncheckedCreateWithoutOrganisationInput = {
     id?: string
     donationId: string
     quantity: number
     amount: number
   }
 
-  export type DonationItemCreateOrConnectWithoutDonationOptionInput = {
+  export type DonationItemCreateOrConnectWithoutOrganisationInput = {
     where: DonationItemWhereUniqueInput
-    create: XOR<DonationItemCreateWithoutDonationOptionInput, DonationItemUncheckedCreateWithoutDonationOptionInput>
+    create: XOR<DonationItemCreateWithoutOrganisationInput, DonationItemUncheckedCreateWithoutOrganisationInput>
   }
 
-  export type DonationItemCreateManyDonationOptionInputEnvelope = {
-    data: DonationItemCreateManyDonationOptionInput | DonationItemCreateManyDonationOptionInput[]
+  export type DonationItemCreateManyOrganisationInputEnvelope = {
+    data: DonationItemCreateManyOrganisationInput | DonationItemCreateManyOrganisationInput[]
     skipDuplicates?: boolean
   }
 
-  export type DonationItemUpsertWithWhereUniqueWithoutDonationOptionInput = {
+  export type DonationItemUpsertWithWhereUniqueWithoutOrganisationInput = {
     where: DonationItemWhereUniqueInput
-    update: XOR<DonationItemUpdateWithoutDonationOptionInput, DonationItemUncheckedUpdateWithoutDonationOptionInput>
-    create: XOR<DonationItemCreateWithoutDonationOptionInput, DonationItemUncheckedCreateWithoutDonationOptionInput>
+    update: XOR<DonationItemUpdateWithoutOrganisationInput, DonationItemUncheckedUpdateWithoutOrganisationInput>
+    create: XOR<DonationItemCreateWithoutOrganisationInput, DonationItemUncheckedCreateWithoutOrganisationInput>
   }
 
-  export type DonationItemUpdateWithWhereUniqueWithoutDonationOptionInput = {
+  export type DonationItemUpdateWithWhereUniqueWithoutOrganisationInput = {
     where: DonationItemWhereUniqueInput
-    data: XOR<DonationItemUpdateWithoutDonationOptionInput, DonationItemUncheckedUpdateWithoutDonationOptionInput>
+    data: XOR<DonationItemUpdateWithoutOrganisationInput, DonationItemUncheckedUpdateWithoutOrganisationInput>
   }
 
-  export type DonationItemUpdateManyWithWhereWithoutDonationOptionInput = {
+  export type DonationItemUpdateManyWithWhereWithoutOrganisationInput = {
     where: DonationItemScalarWhereInput
-    data: XOR<DonationItemUpdateManyMutationInput, DonationItemUncheckedUpdateManyWithoutDonationOptionInput>
+    data: XOR<DonationItemUpdateManyMutationInput, DonationItemUncheckedUpdateManyWithoutOrganisationInput>
   }
 
   export type DonationItemScalarWhereInput = {
@@ -5794,7 +5794,7 @@ export namespace Prisma {
     NOT?: DonationItemScalarWhereInput | DonationItemScalarWhereInput[]
     id?: StringFilter<"DonationItem"> | string
     donationId?: StringFilter<"DonationItem"> | string
-    donationOptionId?: StringFilter<"DonationItem"> | string
+    organisationId?: StringFilter<"DonationItem"> | string
     quantity?: IntFilter<"DonationItem"> | number
     amount?: FloatFilter<"DonationItem"> | number
   }
@@ -5803,12 +5803,12 @@ export namespace Prisma {
     id?: string
     quantity: number
     amount: number
-    donationOption: DonationOptionCreateNestedOneWithoutDonationItemsInput
+    Organisation: OrganisationCreateNestedOneWithoutDonationItemsInput
   }
 
   export type DonationItemUncheckedCreateWithoutDonationInput = {
     id?: string
-    donationOptionId: string
+    organisationId: string
     quantity: number
     amount: number
   }
@@ -5864,7 +5864,7 @@ export namespace Prisma {
     create: XOR<DonationCreateWithoutItemsInput, DonationUncheckedCreateWithoutItemsInput>
   }
 
-  export type DonationOptionCreateWithoutDonationItemsInput = {
+  export type OrganisationCreateWithoutDonationItemsInput = {
     id?: string
     name: string
     description: string
@@ -5876,7 +5876,7 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type DonationOptionUncheckedCreateWithoutDonationItemsInput = {
+  export type OrganisationUncheckedCreateWithoutDonationItemsInput = {
     id?: string
     name: string
     description: string
@@ -5888,9 +5888,9 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type DonationOptionCreateOrConnectWithoutDonationItemsInput = {
-    where: DonationOptionWhereUniqueInput
-    create: XOR<DonationOptionCreateWithoutDonationItemsInput, DonationOptionUncheckedCreateWithoutDonationItemsInput>
+  export type OrganisationCreateOrConnectWithoutDonationItemsInput = {
+    where: OrganisationWhereUniqueInput
+    create: XOR<OrganisationCreateWithoutDonationItemsInput, OrganisationUncheckedCreateWithoutDonationItemsInput>
   }
 
   export type DonationUpsertWithoutItemsInput = {
@@ -5924,18 +5924,18 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type DonationOptionUpsertWithoutDonationItemsInput = {
-    update: XOR<DonationOptionUpdateWithoutDonationItemsInput, DonationOptionUncheckedUpdateWithoutDonationItemsInput>
-    create: XOR<DonationOptionCreateWithoutDonationItemsInput, DonationOptionUncheckedCreateWithoutDonationItemsInput>
-    where?: DonationOptionWhereInput
+  export type OrganisationUpsertWithoutDonationItemsInput = {
+    update: XOR<OrganisationUpdateWithoutDonationItemsInput, OrganisationUncheckedUpdateWithoutDonationItemsInput>
+    create: XOR<OrganisationCreateWithoutDonationItemsInput, OrganisationUncheckedCreateWithoutDonationItemsInput>
+    where?: OrganisationWhereInput
   }
 
-  export type DonationOptionUpdateToOneWithWhereWithoutDonationItemsInput = {
-    where?: DonationOptionWhereInput
-    data: XOR<DonationOptionUpdateWithoutDonationItemsInput, DonationOptionUncheckedUpdateWithoutDonationItemsInput>
+  export type OrganisationUpdateToOneWithWhereWithoutDonationItemsInput = {
+    where?: OrganisationWhereInput
+    data: XOR<OrganisationUpdateWithoutDonationItemsInput, OrganisationUncheckedUpdateWithoutDonationItemsInput>
   }
 
-  export type DonationOptionUpdateWithoutDonationItemsInput = {
+  export type OrganisationUpdateWithoutDonationItemsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -5947,7 +5947,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type DonationOptionUncheckedUpdateWithoutDonationItemsInput = {
+  export type OrganisationUncheckedUpdateWithoutDonationItemsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -5959,28 +5959,28 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type DonationItemCreateManyDonationOptionInput = {
+  export type DonationItemCreateManyOrganisationInput = {
     id?: string
     donationId: string
     quantity: number
     amount: number
   }
 
-  export type DonationItemUpdateWithoutDonationOptionInput = {
+  export type DonationItemUpdateWithoutOrganisationInput = {
     id?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
     amount?: FloatFieldUpdateOperationsInput | number
     donation?: DonationUpdateOneRequiredWithoutItemsNestedInput
   }
 
-  export type DonationItemUncheckedUpdateWithoutDonationOptionInput = {
+  export type DonationItemUncheckedUpdateWithoutOrganisationInput = {
     id?: StringFieldUpdateOperationsInput | string
     donationId?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
     amount?: FloatFieldUpdateOperationsInput | number
   }
 
-  export type DonationItemUncheckedUpdateManyWithoutDonationOptionInput = {
+  export type DonationItemUncheckedUpdateManyWithoutOrganisationInput = {
     id?: StringFieldUpdateOperationsInput | string
     donationId?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
@@ -5989,7 +5989,7 @@ export namespace Prisma {
 
   export type DonationItemCreateManyDonationInput = {
     id?: string
-    donationOptionId: string
+    organisationId: string
     quantity: number
     amount: number
   }
@@ -5998,19 +5998,19 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
     amount?: FloatFieldUpdateOperationsInput | number
-    donationOption?: DonationOptionUpdateOneRequiredWithoutDonationItemsNestedInput
+    Organisation?: OrganisationUpdateOneRequiredWithoutDonationItemsNestedInput
   }
 
   export type DonationItemUncheckedUpdateWithoutDonationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    donationOptionId?: StringFieldUpdateOperationsInput | string
+    organisationId?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
     amount?: FloatFieldUpdateOperationsInput | number
   }
 
   export type DonationItemUncheckedUpdateManyWithoutDonationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    donationOptionId?: StringFieldUpdateOperationsInput | string
+    organisationId?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
     amount?: FloatFieldUpdateOperationsInput | number
   }

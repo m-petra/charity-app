@@ -117,7 +117,7 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.DonationOptionScalarFieldEnum = {
+exports.Prisma.OrganisationScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
@@ -142,7 +142,7 @@ exports.Prisma.DonationScalarFieldEnum = {
 exports.Prisma.DonationItemScalarFieldEnum = {
   id: 'id',
   donationId: 'donationId',
-  donationOptionId: 'donationOptionId',
+  organisationId: 'organisationId',
   quantity: 'quantity',
   amount: 'amount'
 };
@@ -168,7 +168,7 @@ exports.DonationStatus = exports.$Enums.DonationStatus = {
 };
 
 exports.Prisma.ModelName = {
-  DonationOption: 'DonationOption',
+  Organisation: 'Organisation',
   Donation: 'Donation',
   DonationItem: 'DonationItem'
 };

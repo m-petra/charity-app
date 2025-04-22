@@ -14,7 +14,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model DonationOption {
+model Organisation {
   id              String         @id @default(uuid())
   name            String
   description     String
@@ -39,13 +39,13 @@ model Donation {
 }
 
 model DonationItem {
-  id               String         @id @default(uuid())
-  donationId       String
-  donationOptionId String
-  quantity         Int
-  amount           Float // instead of "price"
-  donation         Donation       @relation(fields: [donationId], references: [id])
-  donationOption   DonationOption @relation(fields: [donationOptionId], references: [id])
+  id             String       @id @default(uuid())
+  donationId     String
+  organisationId String
+  quantity       Int
+  amount         Float // instead of "price"
+  donation       Donation     @relation(fields: [donationId], references: [id])
+  Organisation   Organisation @relation(fields: [organisationId], references: [id])
 }
 
 enum DonationStatus {
