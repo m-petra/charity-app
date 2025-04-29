@@ -1,0 +1,16 @@
+@if(organisationStore.loading()) {
+    <div class="loading">
+        <p>Loading...</p>
+    </div>
+} @else if(organisationStore.error()) {
+    <div class="error">
+        <p>Error: {{ organisationStore.error() }}</p>
+    </div>
+} @else if(organisationStore.organisations().length) {
+    @for (organisation of organisationStore.organisations(); track organisation.id) {
+        <div class="organisation-card">
+            <h2>{{ organisation.name }}</h2>
+            <p>{{ organisation.description }}</p>
+        </div>
+    }
+}
