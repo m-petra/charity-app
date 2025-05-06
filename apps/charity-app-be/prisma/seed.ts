@@ -18,7 +18,6 @@ async function main() {
 
   console.log({ organisations });
 
-  // Create only products that don't exist
   for (const organisation  of organisations) {
     const { ...organisationData } = organisation ;
     if (!existingPriceIds.has(organisationData.stripePriceId)) {

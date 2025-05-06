@@ -1,23 +1,39 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { afterNextRender, Component, inject } from '@angular/core';
 import { OrganisationStore } from '../store/organisation.store';
 import { OrganisationCardComponent } from "../components/organisation-card/organisation-card.component";
 import { Organisation } from '@prisma/client';
+import { FormsModule } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
+import untilDestroyed from '../utils/untilDestroyed';
 
 @Component({
   selector: 'app-organisations',
-  imports: [CommonModule, OrganisationCardComponent],
+  imports: [OrganisationCardComponent, FormsModule],
   templateUrl: './organisations.component.html',
   styleUrl: './organisations.component.scss',
 })
 export class OrganisationsComponent {
   organisationStore = inject(OrganisationStore);
+  searchTerm = '';
+  searchSubject = new Subject<string>();
+  destroyed = untilDestroyed();
 
   constructor() {
     this.organisationStore.loadOrganisations();
+    afterNextRender(() => {
+      this.searchSubject
+        .pipe(debounceTime(500), distinctUntilChanged(), this.destroyed())
+        .subscribe((term) => {    
+          this.organisationStore.searchOrganisations(term);
+        });
+    });
   }
 
   addToCart(organisation: Organisation) {
     console.log('Organisation added to cart:', organisation);
+  }
+
+  onSearch(term: string) {
+    this.searchSubject.next(term);
   }
 }

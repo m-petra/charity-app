@@ -2,11 +2,24 @@ import { inject } from '@angular/core';
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 import { Organisation } from '@prisma/client';
 import { Apollo, gql } from 'apollo-angular';
-import { tap } from 'rxjs';
+import { catchError, EMPTY, map, tap } from 'rxjs';
 
 const GET_ORGANISATIONS = gql`
   query GetOrganisations {
     organisations {
+      id
+      name
+      description
+      suggestedAmount
+      image
+      stripePriceId
+    }
+  }
+`;
+
+const SEARCH_ORGANISATIONS = gql`
+  query SearchOrganisations($searchTerm: String!) {
+    searchOrganisations(term: $searchTerm) {
       id
       name
       description
@@ -38,7 +51,7 @@ export const  OrganisationStore = signalStore(
   withState(initialState),
   withMethods((store, apollo = inject(Apollo)) => ({
     loadOrganisations() {
-      patchState(store, { loading: true });
+      patchState(store, { loading: true, error: null });
       apollo
         .watchQuery<{  organisations: Organisation[] }>({
           query: GET_ORGANISATIONS,
@@ -52,5 +65,26 @@ export const  OrganisationStore = signalStore(
           })
         ).subscribe();
     },
+    searchOrganisations(term: string) {
+      patchState(store, { loading: true, error: null });
+      apollo
+        .query<{ searchOrganisations: Organisation[] }>({
+          query: SEARCH_ORGANISATIONS,
+          variables: {
+            searchTerm: term,
+          },
+        })
+        .pipe(
+          map(({ data }) =>
+            patchState(store, { organisations: data.searchOrganisations, loading: false })
+          ),
+          catchError((error) => {
+            patchState(store, { error: error.message, loading: false });
+            return EMPTY;
+          })
+        )
+        .subscribe();
+    },
   }))
 );
+

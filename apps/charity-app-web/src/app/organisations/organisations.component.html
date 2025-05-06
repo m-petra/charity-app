@@ -1,3 +1,13 @@
+<div class="mb-4">
+    <input
+        type="text"
+        placeholder="Search organisations..."
+        class="input input-bordered w-full max-w-xs"
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="onSearch(searchTerm)"
+      />
+</div>
+  see
 @if(organisationStore.loading()) {
     <div>Loading...</div>
 } @else if (organisationStore.error()) {
@@ -11,7 +21,7 @@
     </svg>
     <span>Error: {{ organisationStore.error() }} </span>
 </div>
-} @else if (organisationStore.organisations().length) { >
+} @else if (organisationStore.organisations().length) {
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-fr">
         @for (organisation of organisationStore.organisations(); track organisation.id) {
             <app-organisation-card (addToCart)="addToCart($event)" [organisation]="organisation" />
