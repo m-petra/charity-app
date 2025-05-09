@@ -5,6 +5,7 @@ import { Organisation } from '@prisma/client';
 import { FormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 import untilDestroyed from '../utils/untilDestroyed';
+import { CartStore } from '../store/cart.store';
 
 @Component({
   selector: 'app-organisations',
@@ -14,6 +15,7 @@ import untilDestroyed from '../utils/untilDestroyed';
 })
 export class OrganisationsComponent {
   organisationStore = inject(OrganisationStore);
+  cartStore = inject(CartStore)
   searchTerm = '';
   searchSubject = new Subject<string>();
   destroyed = untilDestroyed();
@@ -30,7 +32,7 @@ export class OrganisationsComponent {
   }
 
   addToCart(organisation: Organisation) {
-    console.log('Organisation added to cart:', organisation);
+    this.cartStore.addToCart(organisation);
   }
 
   onSearch(term: string) {
