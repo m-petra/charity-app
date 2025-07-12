@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 import { ActivatedRoute } from "@angular/router";
 import { DonationStore } from "../../store/donation.store";
 import { DonationDetailComponent } from "../../components/donation-detail/donation-detail.component";
+import { CartStore } from "../../store/cart.store";
 
 @Component({
   selector: "app-checkout-success",
@@ -13,6 +14,11 @@ import { DonationDetailComponent } from "../../components/donation-detail/donati
 export class CheckoutSuccessComponent implements OnInit {
   donationStore = inject(DonationStore);
   route = inject(ActivatedRoute);
+  cartStore = inject(CartStore);
+
+  constructor() {
+    this.cartStore.clearCart();
+  }
 
   ngOnInit() {
     const DonationId = this.route.snapshot.queryParamMap.get('donationId');
