@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output = "../node_modules/@prisma/client"
+  output   = "../../node_modules/@prisma/client"
 }
 
 datasource db {
@@ -39,12 +39,12 @@ model Donation {
 }
 
 model DonationItem {
-  id               String         @id @default(uuid())
-  donationId       String
+  id             String       @id @default(uuid())
+  donationId     String
   organisationId String
-  quantity         Int
-  amount           Float // instead of "price"
-  donation         Donation       @relation(fields: [donationId], references: [id])
+  quantity       Int
+  amount         Float // instead of "price"
+  donation       Donation     @relation(fields: [donationId], references: [id])
   Organisation   Organisation @relation(fields: [organisationId], references: [id])
 }
 
