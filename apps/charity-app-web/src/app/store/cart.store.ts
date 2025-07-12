@@ -8,7 +8,7 @@ import {
 } from "@ngrx/signals";
 import { Organisation } from "@prisma/client";
 
-const CART_LOCALSTORAGE_KEY = 'pet_markt_cart';
+const CART_LOCALSTORAGE_KEY = "pet_markt_cart";
 
 type CartItem = Organisation & {
   quantity: number;
@@ -26,7 +26,17 @@ export const CartStore = signalStore(
   {
     providedIn: "root",
   },
-  withState(() => initialState),
+  withState(() => {
+    if ("localStorage" in globalThis) {
+      return {
+        ...initialState,
+        items: JSON.parse(
+          localStorage.getItem(CART_LOCALSTORAGE_KEY) ?? "[]"
+        ) as CartItem[],
+      };
+    }
+    return initialState;
+  }),
   withComputed((store) => ({
     totalItems: computed(() =>
       store.items().reduce((acc, item) => {
@@ -70,6 +80,11 @@ export const CartStore = signalStore(
           ],
         });
       }
+
+      localStorage.setItem(
+        CART_LOCALSTORAGE_KEY,
+        JSON.stringify(store.items())
+      );
     },
     updateQuantity(productId: string, quantity: number) {
       const updatedItems = store
