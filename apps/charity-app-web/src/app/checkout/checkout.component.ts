@@ -10,8 +10,11 @@ import { CartStore } from "../store/cart.store";
 })
 export class CheckoutComponent {
   cartStore = inject(CartStore);
+  //stripeService = inject(StripeService);
 
   checkout() {
-    console.log("Checkout initiated");
+    // this.stripeService.createCheckoutSession().subscribe(({ url }) => {
+    //   location.href = url;
+    // });
   }
 }
