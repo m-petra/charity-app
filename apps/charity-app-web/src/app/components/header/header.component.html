@@ -1,16 +1,17 @@
 <header class="bg-primary text-neutral-content sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
         <h1 class="text-2xl font-bold">
         <a class="w-full h-full block" routerLink="/">Charity</a>
         </h1>
         <nav>
-        <ul class="flex space-x-4 items-center">
-            <li><a routerLink="/" class="hover:underline">Home</a></li>
-            <li><a routerLink="/organisations" class="hover:underline">Organisations</a></li>
+        <ul class="flex space-x-2 items-center">
+            <li><a routerLink="/" routerLinkActive="bg-white text-primary shadow-md" [routerLinkActiveOptions]="{exact: true}" class="px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-white hover:text-primary hover:shadow-md">Home</a></li>
+            <li><a routerLink="/organisations" routerLinkActive="bg-white text-primary shadow-md" class="px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-white hover:text-primary hover:shadow-md">Organisations</a></li>
             <li>
                 <a
                   routerLink="/cart"
-                  class="cart-icon relative inline-flex"
+                  routerLinkActive="bg-white text-primary shadow-md"
+                  class="cart-icon relative inline-flex px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-white hover:text-primary hover:shadow-md"
                   [class.cart-bounce]="isCartBouncing()"
                 >
                   <svg

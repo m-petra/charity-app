@@ -24,4 +24,14 @@ export const appRoutes: Route[] = [
     loadComponent: () =>
       import("./checkout/checkout.component").then((m) => m.CheckoutComponent),
   },
+    {
+    path: "checkout/cancel",
+    loadComponent: () =>
+      import("./checkout/checkout-failure/checkout-failure.component").then((m) => m.CheckoutFailureComponent),
+  },
+  {
+    path: "checkout/success",
+    loadComponent: () =>
+      import("./checkout/checkout-success/checkout-success.component").then((m) => m.CheckoutSuccessComponent),
+  },
 ];
