@@ -7,4 +7,9 @@ export const appRoutes: Route[] = [{
 },{
     path: 'organisations',
     loadComponent: () => import('./organisations/organisations.component').then(m => m.OrganisationsComponent),
-}];
+}
+,{
+    path: 'cart',
+    loadComponent: () => import('./cart/cart.component').then(m => m.CartComponent),
+}
+];
