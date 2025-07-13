@@ -1,7 +1,12 @@
 import { inject } from "@angular/core";
 import { patchState, signalStore, withMethods, withState } from "@ngrx/signals";
 import { rxMethod } from "@ngrx/signals/rxjs-interop";
-import { Donation, DonationItem, DonationStatus, Organisation } from "@prisma/client";
+import {
+  Donation,
+  DonationItem,
+  DonationStatus,
+  Organisation,
+} from "@prisma/client";
 import { Apollo, gql } from "apollo-angular";
 import { map, pipe, switchMap, tap } from "rxjs";
 
@@ -42,6 +47,15 @@ const UPDATE_DONATION = gql`
         }
       }
       updatedAt
+    }
+  }
+`;
+const DELETE_UNPAID_DONATION = gql`
+  mutation RemoveDonation($id: String!) {
+    removeUnpaid(id: $id) {
+      donationId
+      success
+      error
     }
   }
 `;
@@ -92,7 +106,7 @@ export const DonationStore = signalStore(
           map(({ data }) => data.donation)
         );
     },
-    updateOrder: rxMethod<{ id: string; status: DonationStatus }>(
+    updateDonation: rxMethod<{ id: string; status: DonationStatus }>(
       pipe(
         switchMap(({ id, status }) =>
           apollo.mutate<{
@@ -105,6 +119,27 @@ export const DonationStore = signalStore(
             },
           })
         )
+      )
+    ),
+    removeUnpaidDonation: rxMethod<string>(
+      pipe(
+        switchMap((id) =>
+          apollo.mutate<{
+            updateDonation: DonationWithItems;
+          }>({
+            mutation: DELETE_UNPAID_DONATION,
+            variables: {
+              id,
+            },
+          })
+        ),
+        tap({
+          next: ({ data }) => {
+            console.log("Unpaid donation deleted", { data });
+            patchState(store, { error: null });
+          },
+          error: (error) => patchState(store, { error: error.message }),
+        })
       )
     ),
     setError(error: string) {

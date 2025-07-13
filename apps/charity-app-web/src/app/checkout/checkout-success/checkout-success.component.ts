@@ -18,14 +18,14 @@ export class CheckoutSuccessComponent implements OnInit {
   donationStore = inject(DonationStore);
   route = inject(ActivatedRoute);
   cartStore = inject(CartStore);
-  getAndUpdateOrder = rxMethod<string>(
+  getAndUpdateDonation = rxMethod<string>(
     pipe(
       switchMap((donationId) => {
         return this.donationStore.getDonation(donationId);
       }),
       map((donation) => {
         if (donation.status === DonationStatus.PAYMENT_REQUIRED) {
-          return this.donationStore.updateOrder({
+          return this.donationStore.updateDonation({
             id: donation.id,
             status: DonationStatus.PENDING,
           });
@@ -45,7 +45,7 @@ export class CheckoutSuccessComponent implements OnInit {
       this.donationStore.setError("No order ID found");
       return;
     }
-    this.getAndUpdateOrder(DonationId);
+    this.getAndUpdateDonation(DonationId);
   }
 }
 
