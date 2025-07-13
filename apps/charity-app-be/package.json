@@ -50,6 +50,6 @@
     "seed": "npx ts-node ./prisma/seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "^6.4.1"
+    "@prisma/client": "^6.6.0"
   }
 }

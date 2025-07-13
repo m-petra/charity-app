@@ -1,8 +1,9 @@
-import { inject } from '@angular/core';
-import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
-import { Donation, DonationItem, Organisation } from '@prisma/client';
-import { Apollo, gql } from 'apollo-angular';
-import { map, tap } from 'rxjs';
+import { inject } from "@angular/core";
+import { patchState, signalStore, withMethods, withState } from "@ngrx/signals";
+import { rxMethod } from "@ngrx/signals/rxjs-interop";
+import { Donation, DonationItem, DonationStatus, Organisation } from "@prisma/client";
+import { Apollo, gql } from "apollo-angular";
+import { map, pipe, switchMap, tap } from "rxjs";
 
 const GET_DONATION = gql`
   query GetDonation($id: String!) {
@@ -21,6 +22,26 @@ const GET_DONATION = gql`
         }
       }
       createdAt
+    }
+  }
+`;
+const UPDATE_DONATION = gql`
+  mutation UpdateDonationStatus($id: String!, $status: DonationStatus!) {
+    updateDonation(updateDonationInput: { id: $id, status: $status }) {
+      id
+      status
+      totalAmount
+      items {
+        id
+        quantity
+        amount
+        Organisation {
+          id
+          name
+          image
+        }
+      }
+      updatedAt
     }
   }
 `;
@@ -49,7 +70,7 @@ const initialState: DonationState = {
 
 export const DonationStore = signalStore(
   {
-    providedIn: 'root',
+    providedIn: "root",
   },
   withState(() => initialState),
   withMethods((store, apollo = inject(Apollo)) => ({
@@ -64,12 +85,28 @@ export const DonationStore = signalStore(
         })
         .pipe(
           tap({
-            next: ({ data }) => patchState(store, { donationDetail: data.donation }),
+            next: ({ data }) =>
+              patchState(store, { donationDetail: data.donation }),
             error: (error) => patchState(store, { error: error.message }),
           }),
           map(({ data }) => data.donation)
         );
     },
+    updateOrder: rxMethod<{ id: string; status: DonationStatus }>(
+      pipe(
+        switchMap(({ id, status }) =>
+          apollo.mutate<{
+            updateDonation: DonationWithItems;
+          }>({
+            mutation: UPDATE_DONATION,
+            variables: {
+              id,
+              status,
+            },
+          })
+        )
+      )
+    ),
     setError(error: string) {
       patchState(store, {
         error,

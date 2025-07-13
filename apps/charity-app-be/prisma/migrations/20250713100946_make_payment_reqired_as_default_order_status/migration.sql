@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Donation" ALTER COLUMN "status" SET DEFAULT 'PAYMENT_REQUIRED';
