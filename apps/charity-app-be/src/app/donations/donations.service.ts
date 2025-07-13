@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { CreateDonationInput } from "./dto/create-donation.input";
 import { UpdateDonationInput } from "./dto/update-donation.input";
 import { PrismaService } from "../prisma/prisma.service";
+import { DonationStatus } from "@prisma/client/client";
 
 @Injectable()
 export class DonationsService {
@@ -77,7 +78,34 @@ export class DonationsService {
     });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} donation`;
+  async removeUnpaid(id: string) {
+    const donaton = await this.prisma.donation.findUnique({
+      where: {
+        id,
+      },
+    });
+    if (!donaton) {
+      return {
+        success: true,
+        orderId: id,
+      };
+    }
+    if (donaton.status === DonationStatus.PAYMENT_REQUIRED) {
+      await this.prisma.donation.delete({
+        where: {
+          id,
+        },
+      });
+      return {
+        success: true,
+        donationId: id,
+      };
+    }
+
+    return {
+      success: false,
+      orderId: id,
+      error: `Order is not in ${DonationStatus.PAYMENT_REQUIRED} state`,
+    };
   }
 }

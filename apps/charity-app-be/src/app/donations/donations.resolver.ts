@@ -1,8 +1,9 @@
-import { Resolver, Query, Mutation, Args, Int } from "@nestjs/graphql";
+import { Resolver, Query, Mutation, Args } from "@nestjs/graphql";
 import { DonationsService } from "./donations.service";
 import { Donation } from "./entities/donation.entity";
 import { CreateDonationInput } from "./dto/create-donation.input";
 import { UpdateDonationInput } from "./dto/update-donation.input";
+import { DeleteDonationResp } from "./dto/delete-donation-resp";
 
 @Resolver(() => Donation)
 export class DonationsResolver {
@@ -35,8 +36,8 @@ export class DonationsResolver {
     );
   }
 
-  @Mutation(() => Donation)
-  removeDonation(@Args("id", { type: () => Int }) id: number) {
-    return this.donationsService.remove(id);
+  @Mutation(() => DeleteDonationResp)
+  removeUnpaid(@Args("id", { type: () => String }) id: string) {
+    return this.donationsService.removeUnpaid(id);
   }
 }
