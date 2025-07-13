@@ -27,7 +27,7 @@ export class DonationsResolver {
 
   @Mutation(() => Donation)
   updateDonation(
-    @Args("updateDonationInput") updateDonationInput: UpdateDonationInput
+    @Args("updateDonationInput",{ type: () => UpdateDonationInput }) updateDonationInput: UpdateDonationInput
   ) {
     return this.donationsService.update(
       updateDonationInput.id,

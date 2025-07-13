@@ -35,11 +35,19 @@ export class DonationsService {
   }
 
   findAll() {
-    return `This action returns all donations`;
+    return this.prisma.donation.findMany({
+      include: {
+        items: {
+          include: {
+            Organisation: true,
+          },
+        },
+      },
+    });
   }
 
   findOne(id: string) {
-        return this.prisma.donation.findUnique({
+    return this.prisma.donation.findUnique({
       where: { id },
       include: {
         items: {
@@ -51,8 +59,22 @@ export class DonationsService {
     });
   }
 
-  update(id: number, updateDonationInput: UpdateDonationInput) {
-    return `This action updates a #${id} donation`;
+  update(id: string, UpdateDonationInput: UpdateDonationInput) {
+    return this.prisma.donation.update({
+      where: {
+        id,
+      },
+      data: {
+        ...UpdateDonationInput,
+      },
+      include: {
+        items: {
+          include: {
+            Organisation: true,
+          },
+        },
+      },
+    });
   }
 
   remove(id: number) {

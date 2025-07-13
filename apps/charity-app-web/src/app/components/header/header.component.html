@@ -1,37 +1,52 @@
 <header class="bg-primary text-neutral-content sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-        <h1 class="text-2xl font-bold">
-        <a class="w-full h-full block" routerLink="/">Charity</a>
-        </h1>
-        <nav>
-        <ul class="flex space-x-2 items-center">
-            <li><a routerLink="/" routerLinkActive="bg-white text-primary shadow-md" [routerLinkActiveOptions]="{exact: true}" class="px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-white hover:text-primary hover:shadow-md">Home</a></li>
-            <li><a routerLink="/organisations" routerLinkActive="bg-white text-primary shadow-md" class="px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-white hover:text-primary hover:shadow-md">Organisations</a></li>
-            <li>
-                <a
-                  routerLink="/cart"
-                  routerLinkActive="bg-white text-primary shadow-md"
-                  class="cart-icon relative inline-flex px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-white hover:text-primary hover:shadow-md"
-                  [class.cart-bounce]="isCartBouncing()"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
-                  <span class="cart-count">{{ cartStore.totalItems() }}</span>
-                </a>
-              </li>
-        </ul>
-        </nav>
-    </div>
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">
+      <a class="w-full h-full block" routerLink="/">Charity</a>
+    </h1>
+    <nav>
+      <ul class="flex space-x-2 items-center">
+        <li>
+          <a
+            routerLink="/"
+            routerLinkActive="bg-white text-primary shadow-md"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-white hover:text-primary hover:shadow-md"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/organisations"
+            routerLinkActive="bg-white text-primary shadow-md"
+            class="px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-white hover:text-primary hover:shadow-md"
+            >Organisations</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/cart"
+            routerLinkActive="bg-white text-primary shadow-md"
+            class="cart-icon relative inline-flex px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-white hover:text-primary hover:shadow-md"
+            [class.cart-bounce]="isCartBouncing()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2">
+              <path d="M3 7h18l-2 10a2 2 0 01-2 2H7a2 2 0 01-2-2L3 7z" />
+              <path d="M8 7l4-4 4 4" />
+              <path
+                d="M12 11.8l-1.45-1.32a2 2 0 00-2.9.12 2 2 0 000 2.84L12 16.3l4.35-3.86a2 2 0 000-2.84 2 2 0 00-2.9-.12L12 11.8z"
+                fill="currentColor"
+                stroke="none" />
+            </svg>
+
+            <span class="cart-count">{{ cartStore.totalItems() }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>

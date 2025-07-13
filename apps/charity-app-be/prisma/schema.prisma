@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../../node_modules/@prisma/client"
+  output   = "../node_modules/@prisma/client"
 }
 
 datasource db {
@@ -44,7 +44,7 @@ model DonationItem {
   organisationId String
   quantity       Int
   amount         Float // instead of "price"
-  donation       Donation     @relation(fields: [donationId], references: [id])
+  donation       Donation     @relation(fields: [donationId], references: [id], onDelete: Cascade)
   Organisation   Organisation @relation(fields: [organisationId], references: [id])
 }
 
@@ -52,4 +52,5 @@ enum DonationStatus {
   PENDING
   PROCESSING
   COMPLETED
+  PAYMENT_REQUIRED
 }

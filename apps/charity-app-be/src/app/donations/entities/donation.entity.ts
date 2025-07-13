@@ -29,3 +29,7 @@ export class Donation {
   @Field(() => Date)
   updatedAt!: Date;
 }
+
+registerEnumType(DonationStatus, {
+  name: 'DonationStatus',
+});

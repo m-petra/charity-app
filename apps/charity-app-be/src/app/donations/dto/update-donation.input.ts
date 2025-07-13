@@ -1,8 +1,12 @@
-import { CreateDonationInput } from "./create-donation.input";
-import { InputType, Field, Int, PartialType } from "@nestjs/graphql";
+import { DonationStatus } from "@prisma/client/client";
+import { InputType, Field } from "@nestjs/graphql";
 
 @InputType()
-export class UpdateDonationInput extends PartialType(CreateDonationInput) {
-  @Field(() => Int)
-  id: number;
+export class UpdateDonationInput{
+  @Field(() => String)
+  id!: string;
+
+  
+  @Field(() => DonationStatus)
+  status!: DonationStatus;
 }
