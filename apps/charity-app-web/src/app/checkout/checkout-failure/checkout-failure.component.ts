@@ -1,11 +1,11 @@
 import { Component, inject, OnInit, PLATFORM_ID } from "@angular/core";
-import { CommonModule, isPlatformServer } from "@angular/common";
+import { isPlatformServer } from "@angular/common";
 import { ActivatedRoute, RouterLink } from "@angular/router";
 import { DonationStore } from "../../store/donation.store";
 
 @Component({
   selector: "app-checkout-failure",
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink],
   templateUrl: "./checkout-failure.component.html",
   styleUrl: "./checkout-failure.component.scss",
 })

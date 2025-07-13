@@ -8,8 +8,14 @@ import {
 } from '@angular/platform-browser';
 import { provideApollo } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
-import { InMemoryCache } from '@apollo/client/cache';
+import { InMemoryCache } from '@apollo/client/core';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp } from 'firebase/app';
+import { provideAuth } from '@angular/fire/auth';
+
+import { environment } from './environments/environment';
+import { getAuth } from 'firebase/auth';
 
 
 export const appConfig: ApplicationConfig = {
@@ -23,6 +29,8 @@ export const appConfig: ApplicationConfig = {
         cache: new InMemoryCache(),
       }
     }),
+    provideFirebaseApp(() => initializeApp( environment.firebase )),
+    provideAuth(() => getAuth()),
     provideHttpClient(withFetch()),
     provideClientHydration(withEventReplay(), withIncrementalHydration()),
     provideZoneChangeDetection({ eventCoalescing: true }),

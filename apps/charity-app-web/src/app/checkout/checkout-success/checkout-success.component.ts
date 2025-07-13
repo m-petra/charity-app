@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from "@angular/core";
-import { CommonModule } from "@angular/common";
+
 import { ActivatedRoute } from "@angular/router";
 import { DonationStore } from "../../store/donation.store";
 import { DonationDetailComponent } from "../../components/donation-detail/donation-detail.component";
@@ -10,7 +10,7 @@ import { DonationStatus } from "@prisma/client/client";
 
 @Component({
   selector: "app-checkout-success",
-  imports: [CommonModule, DonationDetailComponent],
+  imports: [DonationDetailComponent],
   templateUrl: "./checkout-success.component.html",
   styleUrl: "./checkout-success.component.scss",
 })

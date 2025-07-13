@@ -34,4 +34,14 @@ export const appRoutes: Route[] = [
     loadComponent: () =>
       import("./checkout/checkout-success/checkout-success.component").then((m) => m.CheckoutSuccessComponent),
   },
+    {
+    path: "auth/login",
+    loadComponent: () =>
+      import("./auth/login/login.component").then((m) => m.LoginComponent),
+  },
+    {
+    path: "auth/signup",
+    loadComponent: () =>
+      import("./auth/signup/signup.component").then((m) => m.SignupComponent),
+  },
 ];
