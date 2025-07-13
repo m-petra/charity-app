@@ -17,8 +17,11 @@ export class OrganisationsResolver {
   }
 
   @Query(() => [Organisation], { name: 'organisations' })
-  findAll() {
-    return this.organisationsService.findAll();
+  findAll(
+    @Args('featured', { type: () => Boolean, nullable: true })
+    featured?: boolean
+  ) {
+    return this.organisationsService.findAll({featured});
   }
 
   @Query(() => Organisation, { name: 'organisation' })

@@ -4,6 +4,8 @@ import { UpdateOrganisationInput } from './dto/update-organisation.input';
 import { PrismaService } from '../prisma/prisma.service';
 import { Organisation } from '@prisma/client';
 
+type FindConfig = { featured?: boolean };
+
 @Injectable()
 export class OrganisationsService {
 
@@ -13,8 +15,15 @@ export class OrganisationsService {
     return 'This action adds a new organisation';
   }
 
-  findAll() {
-    return this.prisma.organisation.findMany();
+  findAll(config: FindConfig = {}) {
+    return this.prisma.organisation.findMany({
+      where:
+        config.featured !== undefined
+          ? {
+              isFeatured: config.featured,
+            }
+          : undefined,
+    });
   }
 
   findOne(id: string) {

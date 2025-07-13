@@ -1,1 +1,77 @@
-<p>home works!</p>
+<section class="hero bg-primary-content py-16 rounded-lg shadow-xl">
+  <div class="hero-content text-center">
+    <div>
+      <h1 class="text-5xl font-bold">Make a Difference Today</h1>
+      <p class="py-6">Support amazing causes and help those in need with your generous donations!</p>
+      <a routerLink="/products" class="btn btn-primary rounded-lg shadow-xl">Donate Now</a>
+    </div>
+  </div>
+</section>
+
+<section class="featured-products py-16">
+  <h2 class="text-3xl font-bold text-center mb-8">Featured Charities</h2>
+  @if (organisationStore.loading()) {
+  <div>Loading...</div>
+  } @else if (organisationStore.error()) {
+  <div class="alert alert-error">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="stroke-current shrink-0 h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+    <span>Error: {{ organisationStore.error() }}</span>
+  </div>
+  } @else if (organisationStore.organisations().length) {
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-fr"
+  >
+    @for (organisation of organisationStore.organisations(); track organisation.id) {
+    <app-organisation-card [organisation]="organisation" (addToCart)="onAddToCart($event)" />
+    }
+  </div>
+  }
+</section>
+
+<section class="hero min-h-[70vh] bg-primary-content rounded-lg shadow-xl">
+  <div class="hero-content text-center">
+    <div class="max-w-md">
+      <h1 class="text-5xl font-bold">Charity</h1>
+      <p class="py-6">
+        Your trusted platform for charitable giving. Connect with meaningful causes and 
+        make a positive impact in the world.
+      </p>
+      <a routerLink="/products" class="btn btn-primary rounded-lg shadow-xl">Start Donating</a>
+    </div>
+  </div>
+</section>
+
+<section class="py-12">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="card bg-primary shadow-xl">
+      <div class="card-body text-primary-content">
+        <h2 class="card-title">Transparent Impact</h2>
+        <p>See exactly how your donations are making a difference in real time.</p>
+      </div>
+    </div>
+    <div class="card bg-primary shadow-xl">
+      <div class="card-body text-primary-content">
+        <h2 class="card-title">Secure Donations</h2>
+        <p>Your contributions are processed safely and securely.</p>
+      </div>
+    </div>
+    <div class="card bg-primary shadow-xl">
+      <div class="card-body text-primary-content">
+        <h2 class="card-title">Verified Charities</h2>
+        <p>All organizations are thoroughly vetted and verified.</p>
+      </div>
+    </div>
+  </div>
+</section>
