@@ -20,8 +20,8 @@ export class CreateDonationInput {
   @Field(() => Float)
   totalAmount!: number;
 
-  // @Field(() => String)
-  // token!: string;
+  @Field(() => String)
+  token!: string;
 }
 
 export interface CreateDonationServiceDto {

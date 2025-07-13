@@ -45,8 +45,6 @@ export class HeaderComponent {
   }
 
   getUserPhotoUrl(user: User | null): string {
-    const kecske = user?.photoURL
-    console.log('kecske', kecske);
     return (
       user?.photoURL ||
       `https://ui-avatars.com/api/?name=${this.getUserDisplayName(user)}`

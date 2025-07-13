@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { CreateDonationInput } from "./dto/create-donation.input";
+import { CreateDonationServiceDto } from "./dto/create-donation.input";
 import { UpdateDonationInput } from "./dto/update-donation.input";
 import { PrismaService } from "../prisma/prisma.service";
 import { DonationStatus } from "@prisma/client/client";
@@ -8,8 +8,8 @@ import { DonationStatus } from "@prisma/client/client";
 export class DonationsService {
   constructor(private prisma: PrismaService) {}
 
-  create(CreateDonationInput: CreateDonationInput) {
-    const { totalAmount, items } = CreateDonationInput;
+  create(CreateDonationInput: CreateDonationServiceDto) {
+    const { totalAmount, items, donorId } = CreateDonationInput;
     return this.prisma.donation.create({
       data: {
         totalAmount,
@@ -24,6 +24,7 @@ export class DonationsService {
             },
           })),
         },
+        donorId
       },
       include: {
         items: {

@@ -2,11 +2,12 @@ import { Injectable } from "@nestjs/common";
 import { CreateCheckoutDto } from "./dto/create-checkout.dto";
 import { DonationsService } from "../donations/donations.service";
 import Stripe from "stripe";
+import { FirebaseService } from "../firebase/firebase.service";
 
 const stripeSecret = process.env.STRIPE_SECRET;
 
 if (!stripeSecret) {
-  throw new Error('Missing stripe secret');
+  throw new Error("Missing stripe secret");
 }
 
 const stripe = new Stripe(stripeSecret);
@@ -14,23 +15,25 @@ const stripe = new Stripe(stripeSecret);
 @Injectable()
 export class CheckoutService {
   constructor(
-    private donationsService: DonationsService
+    private donationsService: DonationsService,
+    private firebaseService: FirebaseService
   ) {}
 
-  async create(createCheckoutDto: CreateCheckoutDto) {
+  async create(createCheckoutDto: CreateCheckoutDto, token: string) {
+    let donorId: string | undefined;
+    if (token) {
+      donorId = await this.firebaseService.verifyToken(token);
+    }
     const donation = await this.donationsService.create({
-      items: createCheckoutDto.items.map(item => ({
-        organisationId: item.organisationId,
-        quantity: item.quantity,
-        amount: item.amount,
-      })),
+      items: createCheckoutDto.items,
       totalAmount: createCheckoutDto.totalAmount,
+      donorId
     });
 
     const session = await stripe.checkout.sessions.create({
       line_items: createCheckoutDto.items.map((item) => ({
         price_data: {
-          currency: 'usd',
+          currency: "usd",
           product_data: {
             name: item.name,
           },
@@ -38,7 +41,7 @@ export class CheckoutService {
         },
         quantity: item.quantity,
       })),
-      mode: 'payment',
+      mode: "payment",
       success_url: `${process.env.FRONTEND_URL}/checkout/success?donationId=${donation.id}`,
       cancel_url: `${process.env.FRONTEND_URL}/checkout/cancel?donationId=${donation.id}`,
       metadata: {

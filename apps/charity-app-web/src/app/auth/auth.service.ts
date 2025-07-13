@@ -35,10 +35,8 @@ export class AuthService implements OnDestroy {
 
   constructor() {
     if (isPlatformServer(this.platformId)) {
-      // set up server auth
       this.setUpServerAuth();
     } else {
-      // set up browser auth
       this.setUpBrowserAuth();
     }
   }
