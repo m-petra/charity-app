@@ -4,16 +4,30 @@ import { Donation } from "./entities/donation.entity";
 import { CreateDonationInput } from "./dto/create-donation.input";
 import { UpdateDonationInput } from "./dto/update-donation.input";
 import { DeleteDonationResp } from "./dto/delete-donation-resp";
+import { FirebaseService } from "../firebase/firebase.service";
+import { UnauthorizedException } from "@nestjs/common";
 
 @Resolver(() => Donation)
 export class DonationsResolver {
-  constructor(private readonly donationsService: DonationsService) {}
+  constructor(
+    private readonly donationsService: DonationsService,
+    private readonly firebaseService: FirebaseService
+  ) {}
 
   @Mutation(() => Donation)
   createDonation(
     @Args("createDonationInput") createDonationInput: CreateDonationInput
   ) {
     return this.donationsService.create(createDonationInput);
+  }
+
+  @Query(() => [Donation], { name: "userDonations" })
+  async findUserDonations(@Args("token", { type: () => String }) token: string) {
+    const userId = await this.firebaseService.verifyToken(token);
+    if (!userId) {
+      throw new UnauthorizedException("Invalid or expired token");
+    }
+    return this.donationsService.findUserDonations(userId);
   }
 
   @Query(() => [Donation], { name: "donations" })
@@ -28,7 +42,8 @@ export class DonationsResolver {
 
   @Mutation(() => Donation)
   updateDonation(
-    @Args("updateDonationInput",{ type: () => UpdateDonationInput }) updateDonationInput: UpdateDonationInput
+    @Args("updateDonationInput", { type: () => UpdateDonationInput })
+    updateDonationInput: UpdateDonationInput
   ) {
     return this.donationsService.update(
       updateDonationInput.id,

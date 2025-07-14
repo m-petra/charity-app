@@ -8,7 +8,8 @@ import {
   Organisation,
 } from "@prisma/client";
 import { Apollo, gql } from "apollo-angular";
-import { map, pipe, switchMap, tap } from "rxjs";
+import { catchError, EMPTY, from, map, pipe, switchMap, tap } from "rxjs";
+import { AuthService } from "../auth/auth.service";
 
 const GET_DONATION = gql`
   query GetDonation($id: String!) {
@@ -60,6 +61,27 @@ const DELETE_UNPAID_DONATION = gql`
   }
 `;
 
+const GET_USER_DONATIONS = gql`
+  query GetUserDonations($token: String!) {
+    userDonations(token: $token) {
+      id
+      totalAmount
+      status
+      items {
+        id
+        quantity
+        amount
+        Organisation {
+          id
+          name
+          image
+        }
+      }
+      createdAt
+    }
+  }
+`;
+
 export type DonationItemWithOrganisation = DonationItem & {
   Organisation: Organisation;
 };
@@ -87,7 +109,7 @@ export const DonationStore = signalStore(
     providedIn: "root",
   },
   withState(() => initialState),
-  withMethods((store, apollo = inject(Apollo)) => ({
+  withMethods((store, apollo = inject(Apollo), auth = inject(AuthService)) => ({
     getDonation(id: string) {
       patchState(store, { error: null });
       return apollo
@@ -105,6 +127,33 @@ export const DonationStore = signalStore(
           }),
           map(({ data }) => data.donation)
         );
+    },
+    getUserDonations() {
+      patchState(store, { loading: true, error: null });
+      return from(auth.getToken()).pipe(
+        switchMap((token) => {
+          if (!token) {
+            throw new Error("User not authenticated");
+          }
+          return apollo.query<{ userDonations: DonationWithItems[] }>({
+            query: GET_USER_DONATIONS,
+            variables: {
+              token,
+            },
+          });
+        }),
+        tap((result) => {
+          patchState(store, {
+            donations: result.data.userDonations,
+            loading: false,
+            error: null,
+          });
+        }),
+        catchError((err) => {
+          patchState(store, { error: err.message, loading: false });
+          return EMPTY;
+        })
+      );
     },
     updateDonation: rxMethod<{ id: string; status: DonationStatus }>(
       pipe(

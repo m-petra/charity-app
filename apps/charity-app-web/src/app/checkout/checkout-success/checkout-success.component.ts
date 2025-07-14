@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from "@angular/core";
+import { afterNextRender, Component, inject, OnInit } from "@angular/core";
 
 import { ActivatedRoute } from "@angular/router";
 import { DonationStore } from "../../store/donation.store";
@@ -6,11 +6,18 @@ import { DonationDetailComponent } from "../../components/donation-detail/donati
 import { CartStore } from "../../store/cart.store";
 import { map, pipe, switchMap } from "rxjs";
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
-import { DonationStatus } from "@prisma/client/client";
+import { CommonModule } from "@angular/common";
+
+enum DonationStatus {
+  PENDING = 'PENDING',
+  PROCESSING = 'PROCESSING',
+  COMPLETED = 'COMPLETED',
+  PAYMENT_REQUIRED = 'PAYMENT_REQUIRED'
+}
 
 @Component({
   selector: "app-checkout-success",
-  imports: [DonationDetailComponent],
+  imports: [DonationDetailComponent, CommonModule],
   templateUrl: "./checkout-success.component.html",
   styleUrl: "./checkout-success.component.scss",
 })
@@ -36,16 +43,18 @@ export class CheckoutSuccessComponent implements OnInit {
   );
 
   constructor() {
-    this.cartStore.clearCart();
+    afterNextRender(() => {
+      this.cartStore.clearCart();
+    });
   }
 
   ngOnInit() {
-    const DonationId = this.route.snapshot.queryParamMap.get("donationId");
-    if (!DonationId) {
+    const donationId = this.route.snapshot.queryParamMap.get("donationId");
+    if (!donationId) {
       this.donationStore.setError("No order ID found");
       return;
     }
-    this.getAndUpdateDonation(DonationId);
+    this.getAndUpdateDonation(donationId);
   }
 }
 

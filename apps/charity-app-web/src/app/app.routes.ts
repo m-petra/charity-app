@@ -24,24 +24,33 @@ export const appRoutes: Route[] = [
     loadComponent: () =>
       import("./checkout/checkout.component").then((m) => m.CheckoutComponent),
   },
-    {
+  {
     path: "checkout/cancel",
     loadComponent: () =>
-      import("./checkout/checkout-failure/checkout-failure.component").then((m) => m.CheckoutFailureComponent),
+      import("./checkout/checkout-failure/checkout-failure.component").then(
+        (m) => m.CheckoutFailureComponent
+      ),
   },
   {
     path: "checkout/success",
     loadComponent: () =>
-      import("./checkout/checkout-success/checkout-success.component").then((m) => m.CheckoutSuccessComponent),
+      import("./checkout/checkout-success/checkout-success.component").then(
+        (m) => m.CheckoutSuccessComponent
+      ),
   },
-    {
+  {
     path: "auth/login",
     loadComponent: () =>
       import("./auth/login/login.component").then((m) => m.LoginComponent),
   },
-    {
+  {
     path: "auth/signup",
     loadComponent: () =>
       import("./auth/signup/signup.component").then((m) => m.SignupComponent),
+  },
+  {
+    path: "donations",
+    loadComponent: () =>
+      import("./donations/donations.component").then((m) => m.DonationsComponent),
   },
 ];

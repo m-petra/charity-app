@@ -24,7 +24,7 @@ export class DonationsService {
             },
           })),
         },
-        donorId
+        donorId,
       },
       include: {
         items: {
@@ -32,6 +32,27 @@ export class DonationsService {
             Organisation: true,
           },
         },
+      },
+    });
+  }
+
+  findUserDonations(donorId: string) {
+    return this.prisma.donation.findMany({
+      where: {
+        donorId,
+        status: {
+          not: "PAYMENT_REQUIRED",
+        },
+      },
+      include: {
+        items: {
+          include: {
+            Organisation: true,
+          },
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
       },
     });
   }
