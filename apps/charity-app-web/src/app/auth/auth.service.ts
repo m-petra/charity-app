@@ -48,7 +48,6 @@ export class AuthService implements OnDestroy {
     let authIdToken: string | undefined;
 
     if (cookieHeader) {
-      // 'pm_session=1234;uId=asdjklj;'
       const cookiePairs = cookieHeader.split(';');
       for (const pair of cookiePairs) {
         const [key, value] = pair.trim().split('=');

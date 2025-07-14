@@ -1,4 +1,5 @@
 import { Route } from "@angular/router";
+import { authGuard } from "./auth/auth.guard";
 
 export const appRoutes: Route[] = [
   {
@@ -54,6 +55,7 @@ export const appRoutes: Route[] = [
       import("./donations/donations.component").then(
         (m) => m.DonationsComponent
       ),
+      canActivate: [authGuard],
   },
   {
     path: "donation/:id",
