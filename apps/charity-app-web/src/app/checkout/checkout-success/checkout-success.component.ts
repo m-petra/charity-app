@@ -51,7 +51,7 @@ export class CheckoutSuccessComponent implements OnInit {
   ngOnInit() {
     const donationId = this.route.snapshot.queryParamMap.get("donationId");
     if (!donationId) {
-      this.donationStore.setError("No order ID found");
+      this.donationStore.setError("No donation ID found");
       return;
     }
     this.getAndUpdateDonation(donationId);

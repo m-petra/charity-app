@@ -13,11 +13,11 @@ import { pipe, switchMap } from "rxjs";
 })
 export class DonationsComponent implements OnInit {
   donationStore = inject(DonationStore);
-  getOrders = rxMethod<void>(
+  getDonations = rxMethod<void>(
     pipe(switchMap(() => this.donationStore.getUserDonations()))
   );
 
   ngOnInit() {
-    this.getOrders();
+    this.getDonations();
   }
 }

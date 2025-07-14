@@ -109,7 +109,7 @@ export class DonationsService {
     if (!donaton) {
       return {
         success: true,
-        orderId: id,
+        donationId: id,
       };
     }
     if (donaton.status === DonationStatus.PAYMENT_REQUIRED) {
@@ -126,8 +126,8 @@ export class DonationsService {
 
     return {
       success: false,
-      orderId: id,
-      error: `Order is not in ${DonationStatus.PAYMENT_REQUIRED} state`,
+      donationId: id,
+      error: `Donation is not in ${DonationStatus.PAYMENT_REQUIRED} state`,
     };
   }
 }

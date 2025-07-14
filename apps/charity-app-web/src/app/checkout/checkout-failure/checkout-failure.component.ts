@@ -20,7 +20,7 @@ export class CheckoutFailureComponent implements OnInit {
     }
     const donationId = this.route.snapshot.queryParamMap.get("donationId");
     if (!donationId) {
-      this.DonationStore.setError("No order ID found");
+      this.DonationStore.setError("No donation ID found");
       return;
     }
     this.DonationStore.removeUnpaidDonation(donationId);

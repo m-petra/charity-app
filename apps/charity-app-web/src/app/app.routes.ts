@@ -51,6 +51,15 @@ export const appRoutes: Route[] = [
   {
     path: "donations",
     loadComponent: () =>
-      import("./donations/donations.component").then((m) => m.DonationsComponent),
+      import("./donations/donations.component").then(
+        (m) => m.DonationsComponent
+      ),
+  },
+  {
+    path: "donation/:id",
+    loadComponent: () =>
+      import("./donation/donation.component").then(
+        (m) => m.DonationComponent
+      ),
   },
 ];

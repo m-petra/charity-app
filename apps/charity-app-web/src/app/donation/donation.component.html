@@ -1,1 +1,23 @@
-<p>donation works!</p>
+<div class="max-w-2xl mx-auto py-8 space-y-8">
+  @let donation = donationStore.donationDetail(); @if (donationStore.error()) {
+  <div class="alert alert-error">
+    {{ donationStore.error() }}
+  </div>
+  } @else if (donation) { }
+  <div class="card bg-base-100">
+    <div class="card-body">
+      <h2 class="card-title">Order Details</h2>
+      <p class="text-sm">Order ID: {{ donation?.id }}</p>
+
+      <div class="space-y-4">
+        @defer (on immediate; hydrate never) {
+        <app-donation-detail [donation]="donationStore.donationDetail()" />
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <a routerLink="/" class="btn btn-primary">Back to Home</a>
+  </div>
+</div>
