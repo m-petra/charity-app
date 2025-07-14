@@ -1,0 +1,84 @@
+// Mobile-first responsive styles for cart component
+
+.cart-mobile-card {
+  transition: all 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.cart-item-image {
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.quantity-input {
+  transition: border-color 0.2s ease;
+  
+  &:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--primary-color), 0.2);
+  }
+}
+
+// Mobile-specific improvements
+@media (max-width: 768px) {
+  .cart-summary {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+    margin: 0 -1rem;
+    padding: 1rem;
+    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mobile-cart-item {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .mobile-actions {
+    gap: 0.5rem;
+  }
+  
+  .mobile-total {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+}
+
+// Animation for quantity changes
+.quantity-change {
+  animation: quantityPulse 0.3s ease;
+}
+
+@keyframes quantityPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Better button styling for mobile
+@media (max-width: 768px) {
+  .btn {
+    min-height: 44px; // Better touch target
+    font-size: 0.875rem;
+  }
+  
+  .btn-sm {
+    min-height: 36px;
+    font-size: 0.75rem;
+  }
+}

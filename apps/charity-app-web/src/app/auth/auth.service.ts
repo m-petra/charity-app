@@ -29,7 +29,7 @@ export class AuthService implements OnDestroy {
   platformId = inject(PLATFORM_ID);
   currentUser$ = user(this.auth);
   idToken = '';
-  cookieKey = '__pm_session';
+  cookieKey = '__ca_session';
   unsubscribeFromOnIdTokenChanged: (() => void) | undefined;
   unsubscribeFromBeforeAuthStateChanged: (() => void) | undefined;
 

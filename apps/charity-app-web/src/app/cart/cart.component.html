@@ -1,14 +1,16 @@
-<div class="space-y-8">
-  <h1 class="text-3xl font-bold">My Charity Basket</h1>
+<div class="space-y-8 px-4 md:px-0">
+  <h1 class="text-2xl md:text-3xl font-bold">My Charity Basket</h1>
 
   @if(!cartStore.items().length) {
   <div class="text-center py-8">
-    <p>Your cart is empty</p>
+    <p class="text-lg mb-4">Your cart is empty</p>
     <a routerLink="/organisations" class="btn btn-primary mt-4">Continue Chariting</a>
   </div>
   } @else {
-  <div class="overflow-x-auto">
-    <table class="table border border-base-300">
+  
+  <!-- Desktop Table View -->
+  <div class="hidden md:block overflow-x-auto">
+    <table class="table border border-base-300 w-full">
       <thead class="bg-neutral text-neutral-content border-b-2 border-base-300">
         <tr>
           <th>Organisation</th>
@@ -56,15 +58,75 @@
     </table>
   </div>
 
-  <div class="flex justify-between items-center">
-    <div>
-      <p class="text-xl">
-        Total: ${{ cartStore.totalAmount() | number : '1.2-2' }}
-      </p>
+  <!-- Mobile Card View -->
+  <div class="md:hidden space-y-4">
+    @for(item of cartStore.items(); track item.id) {
+    <div class="card bg-base-100 shadow-md border border-base-300 cart-mobile-card mobile-cart-item">
+      <div class="card-body p-4">
+        <div class="flex items-start space-x-4">
+          <div class="avatar flex-shrink-0">
+            <div class="mask mask-squircle w-16 h-16 cart-item-image">
+              <img [src]="item.image" [alt]="item.name" />
+            </div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 class="font-semibold text-lg truncate">{{ item.name }}</h3>
+            <p class="text-sm text-gray-600">${{ item.suggestedAmount | number : '1.2-2' }} each</p>
+            
+            <div class="flex items-center justify-between mt-3">
+              <div class="flex items-center space-x-2">
+                <span class="text-sm font-medium">Qty:</span>
+                <input
+                  [value]="item.quantity"
+                  (change)="updateQuantity(item.id, $event)"
+                  type="number"
+                  class="input input-bordered input-sm w-16 quantity-input"
+                  min="1"
+                />
+              </div>
+              <div class="text-right">
+                <p class="text-lg font-semibold mobile-total">${{ item.suggestedAmount * item.quantity | number : '1.2-2' }}</p>
+              </div>
+            </div>
+            
+            <div class="flex justify-end mt-3">
+              <button
+                (click)="cartStore.removeFromCart(item.id)"
+                class="btn btn-secondary btn-outline btn-sm"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="space-x-4">
-      <button (click)="cartStore.clearCart()" class="btn btn-secondary btn-outline">Clear Cart</button>
-      <a routerLink="/checkout" class="btn btn-primary rounded-lg shadow-xl">Proceed to Checkout</a>
+    }
+  </div>
+
+  <!-- Total and Actions -->
+  <div class="bg-base-100 p-4 md:p-6 rounded-lg shadow-md border border-base-300 cart-summary">
+    <div class="flex flex-col md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0">
+      <div class="text-center md:text-left">
+        <p class="text-xl md:text-2xl font-bold mobile-total">
+          Total: ${{ cartStore.totalAmount() | number : '1.2-2' }}
+        </p>
+        <p class="text-sm text-gray-600 mt-1">
+          {{ cartStore.totalItems() }} item{{ cartStore.totalItems() === 1 ? '' : 's' }} in cart
+        </p>
+      </div>
+      <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 mobile-actions">
+        <button 
+          (click)="cartStore.clearCart()" 
+          class="btn btn-secondary btn-outline w-full md:w-auto order-2 md:order-1">
+          Clear Cart
+        </button>
+        <a 
+          routerLink="/checkout" 
+          class="btn btn-primary w-full md:w-auto rounded-lg shadow-xl order-1 md:order-2">
+          Proceed to Checkout
+        </a>
+      </div>
     </div>
   </div>
   }

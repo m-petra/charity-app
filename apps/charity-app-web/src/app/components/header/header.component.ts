@@ -19,6 +19,7 @@ export class HeaderComponent {
   auth = inject(AuthService);
   currentUser$ = this.auth.currentUser$;
   isDropdownOpen = false;
+  isMobileMenuOpen = false;
 
   constructor() {
     effect(() => {
@@ -40,6 +41,14 @@ export class HeaderComponent {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
+  }
+
   getUserDisplayName(user: User | null): string {
     return user?.displayName || user?.email?.split('@')[0] || 'User';
   }
@@ -55,6 +64,7 @@ export class HeaderComponent {
     try {
       await this.auth.logout();
       this.isDropdownOpen = false;
+      this.closeMobileMenu();
     } catch (error) {
       console.error('Logout error:', error);
     }
