@@ -2,7 +2,7 @@
 set -e
 
 echo "🔧 Telepítés..."
-npm install
+npm install --verbose
 
 echo "📦 Prisma generálás..."
 npx prisma generate --schema=apps/charity-app-be/prisma/schema.prisma
